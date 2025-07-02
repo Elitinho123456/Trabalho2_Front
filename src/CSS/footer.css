@@ -1,0 +1,91 @@
+:root {
+    --base-bg: #252525;
+    --darker-bg: #000000;
+    --text-primary: #d1d5db;
+    /* gray-300 */
+    --text-secondary: #9ca3af;
+    /* gray-400 */
+    --text-muted: #6b7280;
+    /* gray-500 */
+    --text-white: #ffffff;
+    --border-color: #4b5563;
+    /* gray-600 */
+    --border-color-light: #374151;
+    /* gray-700 */
+}
+
+/* Rodapé */
+.main-footer {
+  background-color: var(--darker-bg);
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.footer-content h4 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+}
+
+.footer-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-content a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: var(--text-white);
+}
+
+.footer-bottom {
+  border-top: 1px solid #1f2937;
+  /* gray-800 */
+  padding-top: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Media Queries para Responsividade */
+@media (min-width: 640px) {
+
+  /* sm */
+  .cta-buttons {
+    flex-direction: row;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  /* lg */
+  .features-grid,
+  .news-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

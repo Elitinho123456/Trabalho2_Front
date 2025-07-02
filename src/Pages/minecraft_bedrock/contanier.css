@@ -1,0 +1,346 @@
+/* Base styles for the whole app, assuming App.tsx sets body background */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #1a1a1a; /* Fundo escuro geral */
+  color: #ffffff;
+  margin: 0;
+  overflow-x: hidden; /* Previne rolagem horizontal */
+  scroll-behavior: smooth; /* Rolagem suave entre as seções */
+}
+
+/* Container principal que gerencia as seções com scroll-snap */
+.container-main {
+  width: 100%;
+  height: 100vh; /* Ocupa a altura total da viewport */
+  overflow-y: scroll; /* Habilita rolagem vertical */
+  scroll-snap-type: y mandatory; /* Habilita o efeito de "snap" na rolagem vertical */
+}
+
+/* Estilo base para cada seção */
+.section {
+  width: 100%;
+  height: 100vh; /* Cada seção ocupa a altura total da viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start; /* Faz com que a seção se "encaixe" no topo da viewport */
+  padding: 2rem;
+  box-sizing: border-box; /* Inclui padding no cálculo da altura */
+}
+
+/* Fonte para títulos estilo Minecraft (placeholder, você precisa importar a fonte real) */
+@font-face {
+  font-family: 'Minecraft';
+  /* **ATENÇÃO: Substitua pela URL real do arquivo da sua fonte Minecraft** */
+  /* Exemplo: src: url('/fonts/Minecraft.woff2') format('woff2'); */
+  src: url('') format('woff2'); /* DEIXADO VAZIO PARA VOCÊ INSERIR A URL CORRETA */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Estilos gerais para os títulos */
+.discover-title, .buy-title, .crud-title {
+  font-family: 'Minecraft', sans-serif;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.5); /* Efeito de sombra para o texto */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* SEÇÃO 1: DESCUBRA O MINECRAFT */
+.discover-section {
+  background-color: #000000; /* Fundo preto para esta seção */
+  color: #ffffff;
+}
+
+.discover-title {
+  font-size: 3rem;
+  color: #ffffff;
+}
+
+.discover-description {
+  font-size: 1.1rem;
+  color: #cccccc;
+  max-width: 800px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.image-carousel {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #333333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.carousel-nav {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.nav-arrow {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-color: #4CAF50; /* Verde Minecraft */
+}
+
+.carousel-caption {
+  font-size: 0.95rem;
+  color: #aaaaaa;
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+/* SEÇÃO 2: COMPRE OS TRÊS JOGOS */
+.buy-games-section {
+  background-color: #000000; /* Fundo preto para esta seção */
+  color: #ffffff;
+  /* Ajuste de layout para alinhar o grid de jogos e o texto */
+  display: flex;
+  flex-direction: row; /* Elementos lado a lado por padrão */
+  justify-content: center;
+  align-items: center;
+  gap: 4rem; /* Espaçamento entre o grid de imagens e o texto */
+}
+
+.games-content-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    justify-content: center;
+    align-items: center;
+    gap: 4rem; /* Espaço entre o grid e o texto */
+    max-width: 1100px; /* Limita a largura total */
+}
+
+.games-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game-card {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.game-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.game-info {
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.game-price {
+  background-color: #4CAF50; /* Verde Minecraft */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.buy-text-area {
+  text-align: left; /* Alinha o texto à esquerda como na imagem */
+  max-width: 400px;
+}
+
+.buy-title {
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-align: left; /* Sobrescreve o alinhamento central */
+}
+
+.buy-description {
+  font-size: 1rem;
+  color: #cccccc;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-align: left; /* Sobrescreve o alinhamento central */
+}
+
+.buy-button {
+  background-color: #4CAF50; /* Verde Minecraft */
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex; /* Para alinhar a seta */
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buy-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+/* SEÇÃO 3: Funcionalidades CRUD */
+.crud-section {
+  background-color: #222222; /* Fundo ligeiramente diferente para a seção CRUD */
+  color: #ffffff;
+}
+
+.crud-title {
+  font-size: 2.8rem;
+  color: #4CAF50; /* Verde Minecraft */
+}
+
+.crud-description {
+  font-size: 1.1rem;
+  color: #cccccc;
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.7;
+}
+
+.crud-card {
+  background-color: #333333;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  border: 1px solid #444444;
+  text-align: center;
+}
+
+.crud-card-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.crud-card-description {
+  font-size: 1rem;
+  color: #aaaaaa;
+  margin-bottom: 1.5rem;
+}
+
+.crud-button {
+  background-color: #007bff; /* Azul padrão, pode ser ajustado */
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.crud-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .buy-games-section {
+    flex-direction: column; /* Empilha os elementos em telas menores */
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .buy-text-area {
+    text-align: center; /* Centraliza o texto */
+  }
+  .buy-title, .buy-description {
+    text-align: center; /* Centraliza o texto */
+  }
+}
+
+@media (max-width: 768px) {
+  .discover-title {
+    font-size: 2.5rem;
+  }
+  .buy-title {
+    font-size: 2rem;
+  }
+  .crud-title {
+    font-size: 2.2rem;
+  }
+  .games-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .game-card {
+    width: 90%; /* Ajusta largura em telas menores */
+  }
+  .image-carousel {
+    width: 100%;
+  }
+  .carousel-nav {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .discover-title, .buy-title, .crud-title {
+    font-size: 2rem;
+  }
+  .discover-description, .buy-description, .crud-description {
+    font-size: 0.9rem;
+  }
+  .nav-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+}
