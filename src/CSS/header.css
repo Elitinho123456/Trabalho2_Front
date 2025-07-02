@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Remove a margem padrão do body para o header encostar nas bordas */
+body {
+  margin: 0;
+  background-color: #f0f0f0; /* Cor de fundo para o resto da página */
+}
+
+.minecraft-header {
+  /* Fundo e Fonte */
+  background-color: #262423;
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  
+  /* Layout com Flexbox */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* Espaçamento e Borda */
+  padding: 10px 40px;
+  border-bottom: 5px solid #3B2A1A; /* Borda inferior mais escura */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Container do Logo */
+.logo-container img {
+  height: 45px; /* Ajuste a altura do logo conforme necessário */
+  display: block; /* Remove espaço extra abaixo da imagem */
+}
+
+/* Estilo geral para os links de navegação */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* Espaço entre os links */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  padding-bottom: 5px;
+  border-bottom: 4px solid transparent; /* Borda transparente para o efeito hover */
+  transition: border-color 0.2s ease-in-out;
+}
+
+/* Efeito hover para os links */
+.nav-links a:hover {
+  border-bottom-color: #55A555; /* Verde característico do Minecraft no hover */
+}
+
+/* Botão de Call-to-Action ("GET MINECRAFT") */
+.cta-button {
+  background-color: #4CAF50; /* Verde do botão */
+  padding: 12px 20px;
+  border: 2px solid #2E8A2E;
+  box-shadow: 0 0 0 2px #DBDBDB; /* Borda branca externa */
+  font-size: 14px;
+  text-shadow: 2px 2px #3B2A1A; /* Sombra no texto para dar profundidade */
+  transition: background-color 0.2s;
+}
+
+.cta-button:hover {
+  background-color: #55C055; /* Cor mais clara no hover */
+  border-bottom-color: transparent; /* Remove o efeito de borda do link normal */
+}
