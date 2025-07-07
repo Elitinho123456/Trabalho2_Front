@@ -1,0 +1,53 @@
+.mensagem-erro{
+position: fixed;
+ border: 1px solid coral;
+ width: fit-content;
+ padding: 0px 15px;
+ right: 15px;
+background-color: rgb(224, 54, 54);
+color:aliceblue
+
+}
+.container{
+    margin-top: 150px;
+    display: flex;
+    gap:15px
+}
+.container-nivel{
+flex:3;
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+}
+.container div{
+    background-color: rgb(226, 252, 255);
+    flex:1
+}
+
+.container-categoria form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+}
+.container-titulo{
+    flex:1;
+    box-shadow: 0px 0px 10px 2px rgb(199, 239, 255);
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+input{
+    padding: 10px;
+    border: 1px solid  rgb(125, 162, 187);
+}
+input [type="text"]:focus{
+    border:1px solid lightblue
+}
+.container-categoria{
+     flex:1;
+    box-shadow: 0px 0px 10px 2px rgb(0, 0, 0);
+    padding: 32px;
+    box-sizing: border-box; 
+    max-height: 250px;
+}
