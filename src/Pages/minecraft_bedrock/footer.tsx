@@ -7,11 +7,11 @@ export default function Footer() {
     <footer className="minecraft-footer">
 
       <div className="footer-content">
-        <p>&copy; 2023 Minecraft. All rights reserved.</p>
+        <p>&copy; 2023 Minecraft.TODOS OS DIREITOS RESERVADOS.</p>
         <nav className="footer-links">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-          <a href="/contact">Contact Us</a>
+          <a href="/privacy">POLITICA DE PRIVACIDADE</a>
+          <a href="/terms">TERMOS E SERVIÇO</a>
+          <a href="/contact">CONTATE-NOS</a>
         </nav>
       </div>
 

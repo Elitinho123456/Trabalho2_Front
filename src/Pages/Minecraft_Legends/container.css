@@ -1,0 +1,63 @@
+/* Container Styles */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Max Width Variants */
+.container-sm {
+  max-width: 640px;
+}
+
+.container-md {
+  max-width: 768px;
+}
+
+.container-lg {
+  max-width: 1024px;
+}
+
+.container-xl {
+  max-width: 1200px;
+}
+
+.container-full {
+  max-width: 100%;
+}
+
+/* Padding Variants */
+.container-padding-none {
+  padding: 0;
+}
+
+.container-padding-sm {
+  padding: 0 1rem;
+}
+
+.container-padding-md {
+  padding: 0 2rem;
+}
+
+.container-padding-lg {
+  padding: 0 3rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container-padding-md {
+    padding: 0 1rem;
+  }
+  
+  .container-padding-lg {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-padding-sm,
+  .container-padding-md,
+  .container-padding-lg {
+    padding: 0 1rem;
+  }
+}

@@ -5,11 +5,12 @@ import Footer from './components/footer'
 import Home from './Pages/Home/home'
 import JavaEditionPage from './Pages/Minecraft_Java/java'
 import Dungeons from './Pages/Minecraft_Dungeons/dungeons.tsx'
-//import bedrock from '.pages/minecraft_bedrock/bedrock'
+import Bedrock from './Pages/minecraft_bedrock/contanier.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import ItemList from './Pages/Minecraft_Dungeons/pages/ItemList.tsx'
 import ItemForm from './Pages/Minecraft_Dungeons/pages/ItemForm.tsx'
 import ReportPage from './Pages/Minecraft_Dungeons/pages/ReportPage.tsx'
+import MinecraftLegendsPage from './Pages/Minecraft_Legends/container.tsx' 
 
 const router = createBrowserRouter([
   {
@@ -17,8 +18,16 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
+    path: '/Bedrock',
+    element: <Bedrock />
+  },
+  {
     path: '/Java',
     element: <JavaEditionPage />
+  },
+  {
+    path: '/Legends',
+    element: <MinecraftLegendsPage />
   },
   {
     path: '/Dungeons',

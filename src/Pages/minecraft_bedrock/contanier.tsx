@@ -1,6 +1,6 @@
 // App.tsx
 import React, { useState } from 'react';
-import './App.css'; // Importa o arquivo de estilos separado
+import './contanier.css'; // Importa o arquivo de estilos separado
 
 // ===================================================================================
 // --- 1. INTERFACES GLOBAIS ---
@@ -147,30 +147,22 @@ const Header: React.FC = () => {
  * O conteúdo principal da página, dividido em seções.
  */
 const Container: React.FC = () => {
-  
-  // *** COMENTÁRIO IMPORTANTE SOBRE IMAGENS LOCAIS ***
-  // Para usar imagens que você baixou, siga estes passos:
-  // 1. Crie uma pasta `public` na raiz do seu projeto (se não existir).
-  // 2. Coloque suas imagens dentro da pasta `public` (ex: `public/meu-castelo.png`).
-  // 3. No campo `src` abaixo, use o caminho a partir da pasta `public`.
-  //    Exemplo: troque 'https://placehold.co/...' por '/meu-castelo.png'
-  //
-  // Outra opção é criar a pasta `src/assets` e importar as imagens:
-  // import meuCastelo from './assets/meu-castelo.png';
-  // E depois usar a variável: src: meuCastelo,
+
+  // imagens dos locais minecraft
+
   const discoverMinecraftImages: CarouselImage[] = [
     {
-      src: "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/CREATE_BuildAlmostAnything.png",
+      src: "/castelo.png",
       alt: "Castelo Minecraft",
       caption: "Construa vastos assentamentos ou uma modesta cabana. Construa este mundo como você quiser!",
     },
     {
-      src: "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/EXPLORE_PDPScreenshotRefresh2024_multipleBiomes_01.png",
+      src: "/floresta_cerejeira.avif",
       alt: "Explorar Mundos Minecraft",
       caption: "Explore biomas únicos e encontre segredos escondidos em cada canto do seu mundo.",
     },
     {
-      src: "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/screenshots/SURVIVE.png",
+      src: "/alex_e_steve.jpg",
       alt: "Sobreviver a Mobs Minecraft",
       caption: "Enfrente criaturas perigosas e defenda-se para sobreviver à noite.",
     },
@@ -192,12 +184,9 @@ const Container: React.FC = () => {
       {/* Seção 2: Compre os Jogos */}
       <section id="buy-games" className="section">
         <div className="games-content-wrapper">
-          {/* COMENTÁRIO: Para usar uma imagem local aqui, faça o mesmo que no carrossel.
-            Coloque sua imagem (ex: '3-jogos.svg') na pasta `public`
-            e troque o `src` para: src="/3-jogos.svg" 
-          */}
+
           <img
-            src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/PDP-Hero_Triple-Bundle_16x9.jpg" 
+            src="/mine3.jpg" 
             alt="Minecraft Java & Bedrock, Dungeons e Legends Juntos"
             className="buy-games-image"
             onError={(e) => { e.currentTarget.src = "https://placehold.co/900x400/222222/ffffff?text=Image+Not+Found"; }}
@@ -222,7 +211,7 @@ const Container: React.FC = () => {
         <div className="section-content">
           <h2 className="crud-title">Funcionalidades CRUD</h2>
           <p className="crud-description">
-            Aqui você pode integrar as operações de Create, Read, Update e Delete. Este é o coração do seu projeto Full Stack!
+            Aqui você pode integrar as operações de Create, Read, Update e Delete.
           </p>
           <div className="crud-card">
             <h3 className="crud-card-title">Gerenciamento de Entidades</h3>
