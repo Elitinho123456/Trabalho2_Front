@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import api from '../service/api'
 import type { Categoria } from "../types";
 import '../styles/itemForm.css'
+import '../styles/dungeonsShared.css'
 
 export default function ItemForm() {
     const { id } = useParams<{ id: string }>();
@@ -54,6 +55,7 @@ export default function ItemForm() {
             navigate('/dungeons');
         } catch (err) {
             setError("Ocooreu um erro ao salvar. Tente Novamente.");
+            console.error(err)
         }
     };
 
@@ -63,8 +65,8 @@ export default function ItemForm() {
                 {id ? 'Editar Item' : 'adiconar Novo Item'}
             </h2>
             {error && <p className="form-error">{error}</p>}
-            <form onSubmit={handleSubmit}>
-                <div>
+            <form onSubmit={handleSubmit} className="dungeons-form">
+                <div className="form-group">
                     <label >
                         Nome:
                     </label>
@@ -81,8 +83,18 @@ export default function ItemForm() {
                         <option value="Raro">Raro</option>
                         <option value="Unico">Unico</option>
                     </select>
+                    <label>
+                        Categoria
+                    </label>
+                    <select value="{categoriaId" onChange={e=> setCategoriaId(Number(e.target.value))}>
+                        <option value="">Selecione...</option>
+                        {categorias.map(cat=>(
+                            <option key={cat.id} value={cat.id}>{cat.nome}</option>
+                        ))}
+                    </select>
                 </div>
+                <button type="submit" className="btn btn-add">Salvar</button>
             </form>
         </div>
-    )
+    );
 }

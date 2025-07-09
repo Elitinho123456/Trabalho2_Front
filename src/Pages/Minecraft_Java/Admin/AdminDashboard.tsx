@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Package, FileText, Settings } from 'lucide-react';
-import './Admin/admin.css'; // Assuming you'll create a specific CSS for admin
+import './Admin.css';
 
 const AdminDashboard: React.FC = () => {
     return (

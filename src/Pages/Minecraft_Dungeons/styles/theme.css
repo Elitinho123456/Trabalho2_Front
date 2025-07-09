@@ -1,0 +1,25 @@
+/* minecraft_dungeons/style/theme.css */
+/* Importa as variáveis globais para podermos usá-las */
+@import url('/src/CSS/header.css'); 
+
+:root {
+  /* Cores temáticas para Dungeons */
+  --dungeons-bg-primary: #2c251e; /* Um marrom escuro e profundo, quase preto */
+  --dungeons-bg-secondary: #3e3529; /* Marrom para painéis e cards */
+  --dungeons-bg-tertiary: #5a4d3c; /* Marrom mais claro para highlights e hover */
+  
+  --dungeons-text-title: #e6a249; /* Dourado/Laranja para títulos */
+  --dungeons-text-body: var(--text-primary); /* Reutiliza o texto primário global (cinza claro) */
+  --dungeons-text-accent: #f0e6d6; /* Um branco-pergaminho para texto de destaque */
+
+  --dungeons-border-color: #7a6a53; /* Cor de borda */
+
+  /* Cores de Ação */
+  --dungeons-success: #5a8e3a; /* Verde para botões de sucesso/adicionar */
+  --dungeons-danger: #c0392b; /* Vermelho para botões de perigo/excluir */
+  --dungeons-edit: #2980b9; /* Azul para botões de edição */
+
+  /* Fonte Temática (Opcional, mas dá um toque incrível) */
+  /* Você pode adicionar um import do Google Fonts no seu index.html */
+  --dungeons-font: 'IM Fell English SC', serif;
+}

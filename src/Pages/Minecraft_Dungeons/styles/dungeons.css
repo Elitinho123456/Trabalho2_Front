@@ -1,17 +1,20 @@
+@import url('./theme.css');
+
 .dungeons-container {
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 0 auto 4rem auto; /* 0 no topo, 4rem embaixo para dar espaço para o footer */
   padding: 2rem;
-  background-color: #fdf6e9; /* Um creme claro, tema de pergaminho */
-  border: 2px solid #c8b79b;
+  background-color: var(--dungeons-bg-primary);
+  border: 2px solid var(--dungeons-border-color);
+  color: var(--dungeons-text-body);
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .dungeons-container header h1 {
-  color: #4a3422; /* Marrom escuro */
+  font-family: var(--dungeons-font, sans-serif); /* Usa a fonte temática */
+  color: var(--dungeons-text-title);
   text-align: center;
   margin-bottom: 1.5rem;
-  text-shadow: 1px 1px 2px #c8b79b;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }

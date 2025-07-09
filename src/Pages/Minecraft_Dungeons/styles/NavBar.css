@@ -1,25 +1,25 @@
 /* minecraft_dungeons/style/Navbar.css */
+@import url('./theme.css');
 
 .dungeons-nav {
-  background-color: #523a24; /* Marrom médio */
+  background-color: var(--dungeons-bg-secondary);
   padding: 1rem;
   margin-bottom: 1.5rem;
   border-radius: 8px;
   display: flex;
-  gap: 25px; /* Espaçamento entre os links */
+  gap: 25px;
   align-items: center;
+  border: 1px solid var(--dungeons-border-color);
 }
 
 .dungeons-nav a {
-  color: #f0e6d6; /* Cor de pergaminho */
+  font-family: var(--dungeons-font, sans-serif);
+  color: var(--dungeons-text-accent);
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   transition: color 0.2s ease-in-out;
 }
 
-.dungeons-nav a:hover,
-.dungeons-nav a.active { /* Para destacar o link ativo, se você usar NavLink */
-  color: #fff;
-  text-decoration: underline;
+.dungeons-nav a:hover {
+  color: var(--dungeons-text-title);
 }

@@ -1,16 +1,17 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import api from '../service/api'
 import type { Item } from '../types';
 import '../styles/ItemList.css'
+import '../styles/dungeonsShared.css'
 
 export default function ItemList() {
     const [itens, setItens] = useState<Item[]>([]);
     const [RaridadeFiltro, setRaridadeFiltro] = useState('');
     const [Loading, setLoading] = useState(true)
-    const [Error, setError] = useState<String | null>(null)
+    const [Error, setError] = useState<string | null>(null)
 
-    const fetchItens = async () => {
+    const fetchItens = React.useCallback(async () => {
         setLoading(true);
         setError(null);
 
@@ -21,14 +22,15 @@ export default function ItemList() {
             setItens(response.data);
         } catch (err) {
             setError('Falha ao carregar os itens. Verifque se o backend está ligado');
+            console.log(err)
         } finally {
             setLoading(false);
         }
-    };
+    }, [RaridadeFiltro]);
 
     useEffect(() => {
         fetchItens();
-    }, [RaridadeFiltro]);
+    }, [fetchItens]);
 
     const handleDelete = async (id: number) => {
         if (window.confirm('Tem certeza que deseja excluir este item?')) {
@@ -38,6 +40,7 @@ export default function ItemList() {
                 fetchItens();
             } catch (err) {
                 alert('erro ao excluir')
+                console.error(err)
             }
         }
     };
@@ -45,13 +48,13 @@ export default function ItemList() {
     if (Loading)
         return <p>Carregando itens...</p>;
     if (Error)
-        return <p>{Error}</p>
+        return <p style={{color:'red'}}>{Error}</p>
 
     return (
         <div className="item-list-container">
             <h2>Itens Cadastrados</h2>
-            <div className="item-list-actions">
-                <Link to="/dungeons/novo">Adicionar Novo Item</Link>
+            <div className="dungeons-actions-bar">
+                <Link to="/admin/dungeons/novo" className='btn btn-add'>Adicionar Novo Item</Link>
 
                 <label>Filtrar por Raridade: </label>
                 <select value={RaridadeFiltro} onChange={(e) => setRaridadeFiltro(e.target.value)}>
@@ -62,7 +65,7 @@ export default function ItemList() {
                 </select>
             </div>
 
-            <table className="item-list-table">
+            <table className="dungeons-table">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -78,9 +81,9 @@ export default function ItemList() {
                             <td>{item.poder}</td>
                             <td>{item.raridade}</td>
                             <td>
-                                <Link to={`/dungeons/editar/${item.id}`}>Editar</Link>
+                                <Link to={`/admin/dungeons/editar/${item.id}`} className="btn-edit-link">Editar</Link>
                                 {' | '}
-                                <button onClick={() => handleDelete(item.id)}>Excluir</button>
+                                <button onClick={() => handleDelete(item.id)} className="btn btn-delete">Excluir</button>
                             </td>
                         </tr>
                     ))}
