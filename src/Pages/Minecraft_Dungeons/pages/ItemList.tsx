@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import api from '../service/api'
 import type { Item } from '../types';
-
+import '../styles/ItemList.css'
 
 export default function ItemList() {
     const [itens, setItens] = useState<Item[]>([]);
@@ -45,14 +45,14 @@ export default function ItemList() {
     if (Loading)
         return <p>Carregando itens...</p>;
     if (Error)
-        return <p style ={{color:'red'}}>{Error}</p>
+        return <p>{Error}</p>
 
     return (
-        <div>
+        <div className="item-list-container">
             <h2>Itens Cadastrados</h2>
-            <Link to="/dungeons/novo">Adicionar Novo Item</Link>
+            <div className="item-list-actions">
+                <Link to="/dungeons/novo">Adicionar Novo Item</Link>
 
-            <div style={{ margin: '1rem 0' }}>
                 <label>Filtrar por Raridade: </label>
                 <select value={RaridadeFiltro} onChange={(e) => setRaridadeFiltro(e.target.value)}>
                     <option value="">Todas</option>
@@ -62,7 +62,7 @@ export default function ItemList() {
                 </select>
             </div>
 
-            <table border={1} style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <table className="item-list-table">
                 <thead>
                     <tr>
                         <th>Nome</th>

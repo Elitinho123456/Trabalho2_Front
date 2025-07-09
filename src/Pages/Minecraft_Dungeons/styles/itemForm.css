@@ -1,0 +1,57 @@
+/* minecraft_dungeons/style/ItemForm.css */
+
+.item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço entre os campos do formulário */
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f7f1e6;
+  border-radius: 8px;
+}
+
+.item-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #4a3422;
+}
+
+.item-form input,
+.item-form select {
+  padding: 10px;
+  border: 1px solid #c8b79b;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.item-form .submit-button {
+  background-color: #5a8e3a;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+
+.item-form .submit-button:hover {
+  background-color: #4a782a;
+}
+
+.form-error {
+  color: #c0392b;
+  background-color: #fdd;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 1rem;
+}

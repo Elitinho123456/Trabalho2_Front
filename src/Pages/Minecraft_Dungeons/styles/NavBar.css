@@ -1,0 +1,25 @@
+/* minecraft_dungeons/style/Navbar.css */
+
+.dungeons-nav {
+  background-color: #523a24; /* Marrom médio */
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  gap: 25px; /* Espaçamento entre os links */
+  align-items: center;
+}
+
+.dungeons-nav a {
+  color: #f0e6d6; /* Cor de pergaminho */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.dungeons-nav a:hover,
+.dungeons-nav a.active { /* Para destacar o link ativo, se você usar NavLink */
+  color: #fff;
+  text-decoration: underline;
+}

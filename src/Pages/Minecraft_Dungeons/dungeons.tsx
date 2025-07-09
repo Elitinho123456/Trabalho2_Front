@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar } from './components/Navbar'
+import './styles/dungeons.css'
 
 
 export default function Dungeons() {
   return (
-    <div>
+    <div className="dungeons-container">
       {/* Você pode colocar um título ou banner específico do Dungeons aqui */}
       <h1> Área Administrativa - Minecraft Dungeons</h1>
       {/* O menu de navegação da sua seção */}

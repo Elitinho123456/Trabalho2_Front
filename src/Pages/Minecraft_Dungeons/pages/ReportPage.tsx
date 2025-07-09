@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import api from '../service/api'
+import type { ReportItem } from "../types";
 
 
 export default function ReportPage() {
@@ -24,12 +25,12 @@ export default function ReportPage() {
     }, []);
 
     if (loading) return <p>Gerando relatório...</p>;
-    if (error) return <p style={{ color: 'red' }}>{error}</p>;
+    if (error) return <p>{error}</p>;
 
     return (
         <div>
             <h1>Relatório de Itens por Categoria</h1>
-            <table border={1} style={{ width: '100%' }}>
+            <table>
                 <thead>
                     <tr>
                         <th>Nome do Item</th>

@@ -1,0 +1,63 @@
+/* minecraft_dungeons/style/ItemList.css */
+
+.item-list-container h2 {
+  color: #4a3422;
+  border-bottom: 2px solid #c8b79b;
+  padding-bottom: 0.5rem;
+}
+
+.item-list-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.item-list-actions .add-item-link {
+  background-color: #5a8e3a; /* Verde musgo */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.item-list-actions .add-item-link:hover {
+  background-color: #4a782a;
+}
+
+.item-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.item-list-table th,
+.item-list-table td {
+  border: 1px solid #c8b79b;
+  padding: 12px;
+  text-align: left;
+}
+
+.item-list-table th {
+  background-color: #e8dcc8; /* Um bege mais escuro para o cabeçalho */
+  color: #4a3422;
+}
+
+.item-list-table tr:nth-child(even) {
+  background-color: #f7f1e6; /* Cor alternada para as linhas */
+}
+
+.item-list-table button {
+  background-color: #c0392b; /* Vermelho para deletar */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.item-list-table button:hover {
+  background-color: #a0291b;
+}

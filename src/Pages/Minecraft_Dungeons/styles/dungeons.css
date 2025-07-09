@@ -1,0 +1,17 @@
+.dungeons-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fdf6e9; /* Um creme claro, tema de pergaminho */
+  border: 2px solid #c8b79b;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dungeons-container header h1 {
+  color: #4a3422; /* Marrom escuro */
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px #c8b79b;
+}
