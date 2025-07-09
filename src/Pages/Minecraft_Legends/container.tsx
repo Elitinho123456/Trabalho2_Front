@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'; // React + hooks
 import Header from '../../components/footer';         // Componente de cabeçalho
 import Footer from '../../components/header';         // Componente de rodapé  
-import './MinecraftLegendsPage.css';               // Estilos específicos da página
+import './container.css';               // Estilos específicos da página
 
 // Define o formato (interface) de uma plataforma
 interface Platform {
