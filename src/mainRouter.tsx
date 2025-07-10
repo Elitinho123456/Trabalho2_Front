@@ -1,12 +1,11 @@
 import ItemList from './Pages/Minecraft_Dungeons/pages/ItemList.tsx'
 import ItemForm from './Pages/Minecraft_Dungeons/pages/ItemForm.tsx'
-import ReportPage from './Pages/Minecraft_Dungeons/pages/ReportPage.tsx'
-import PublicItemList from './Pages/Minecraft_Dungeons/pages/PubicItemList.tsx'
-import MinecraftLegendsPage from './Pages/Minecraft_Legends/container.tsx'
-import Home from './Pages/Home/home'
-import JavaEditionPage from './Pages/Minecraft_Java/java'
+import MinecraftLegendsPage from './Pages/Minecraft_Legends/Legends.tsx'
+import Home from './Pages/Home/home.tsx'
+import JavaEditionPage from './Pages/Minecraft_Java/java.tsx'
 import Dungeons from './Pages/Minecraft_Dungeons/dungeons.tsx'
 import Bedrock from './Pages/minecraft_bedrock/contanier.tsx'
+import DungeonsPage from './Pages/Minecraft_Dungeons/pages/DungeonsPage.tsx'
 //import Legends from 'Pages/minecraft_Legends/container.tsx'
 import AdminDashboard  from './Pages/Minecraft_Java/Admin/AdminDashboard.tsx'
 import ManageProducts from './Pages/Minecraft_Java/Admin/Management/ManageProducts.tsx'
@@ -50,7 +49,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/Dungeons',
-    element: <PublicItemList />,
+    element: <DungeonsPage />,
   },
     {
       path:'/admin/dungeons',
@@ -61,7 +60,7 @@ export const router = createBrowserRouter([
         element: <ItemList />,
       },
       {
-        path: 'Novo',
+        path: 'novo',
         element: <ItemForm />,
       },
       {
@@ -70,7 +69,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'relatorio',
-        element: <ReportPage />
+        element: <div><h1>TESTE DO RELATÓRIO FUNCIONOU</h1></div>,
       }
     ]
   }

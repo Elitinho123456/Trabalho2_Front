@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import './styles/dungeons.css'; // << IMPORTA AQUI
+import './styles/dungeons.css'; 
+import './styles/dungeonsShared.css';
 
 export default function Dungeons() {
   return (
-    <div className="dungeons-container"> {/* << USA A CLASSE CSS */}
+    <div className="dungeons-container"> 
       <header>
         <h1>Área Administrativa - Minecraft Dungeons</h1>
       </header>

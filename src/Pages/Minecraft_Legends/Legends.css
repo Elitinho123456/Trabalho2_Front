@@ -1,0 +1,37 @@
+/* Legends.css */
+body {
+  margin: 0;
+  background: #121212;
+  color: #fff;
+  font-family: 'Minecraft', sans-serif;
+}
+
+.legends-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.minecraft-button {
+  background: #5a3921;
+  color: #ffd700;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+.minecraft-button:hover {
+  background: #7a4f2d;
+  transform: translateY(-2px);
+}
+
+/* Add this if using Minecraft font */
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/fonts/Minecraft.ttf') format('truetype');
+}

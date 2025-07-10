@@ -17,14 +17,14 @@ export default function ItemForm() {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        api.get('/categoria').then(response => {
+        api.get('/api/categoria').then(response => {
             setCategorias(response.data);
         }).catch(() => setError('Não foi possível carregar as categorias'));
     }, []);
 
     useEffect(() => {
         if (id) {
-            api.get(`/itens/${id}`).then(response => {
+            api.get(`/api/itens/${id}`).then(response => {
                 const item = response.data;
                 setNome(item.nome);
                 setPoder(item.poder);
@@ -46,10 +46,10 @@ export default function ItemForm() {
 
         try {
             if (id) {
-                await api.put(`/itens/${id}`, itemData);
+                await api.put(`/api/itens/${id}`, itemData);
                 alert('Item atualizado com sucesso!');
             } else {
-                await api.post('/itens', itemData)
+                await api.post('/api/itens', itemData)
                 alert('item criado com sucesso!');
             }
             navigate('/dungeons');
@@ -60,33 +60,31 @@ export default function ItemForm() {
     };
 
     return (
-        <div>
+         <div className="dungeons-form-container"> 
             <h2>
-                {id ? 'Editar Item' : 'adiconar Novo Item'}
+                {id ? 'Editar Item' : 'Adicionar Novo Item'}
             </h2>
             {error && <p className="form-error">{error}</p>}
             <form onSubmit={handleSubmit} className="dungeons-form">
                 <div className="form-group">
-                    <label >
-                        Nome:
-                    </label>
+                    <label>Nome:</label>
                     <input type="text" value={nome} onChange={e => setNome(e.target.value)} />
-                    <label>
-                        Poder:
-                    </label>
+                </div>
+                <div className="form-group">
+                    <label>Poder:</label>
                     <input type="number" value={poder} onChange={e => setPoder(Number(e.target.value))}/>
-                    <label >
-                        Raridade:
-                    </label>
+                </div>
+                <div className="form-group">
+                    <label>Raridade:</label>
                     <select value={raridade} onChange={e=>setRaridade(e.target.value)}>
                         <option value="Comum">Comum</option>
                         <option value="Raro">Raro</option>
-                        <option value="Unico">Unico</option>
+                        <option value="Único">Único</option>
                     </select>
-                    <label>
-                        Categoria
-                    </label>
-                    <select value="{categoriaId" onChange={e=> setCategoriaId(Number(e.target.value))}>
+                </div>
+                <div className="form-group">
+                    <label>Categoria:</label>
+                    <select value={categoriaId} onChange={e=> setCategoriaId(Number(e.target.value))}>
                         <option value="">Selecione...</option>
                         {categorias.map(cat=>(
                             <option key={cat.id} value={cat.id}>{cat.nome}</option>

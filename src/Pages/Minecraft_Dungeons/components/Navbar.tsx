@@ -3,8 +3,8 @@ import '../styles/NavBar.css'
 export function Navbar(){
     return(
         <nav className="dungeons-nav">
-            <Link to="/dungeons"> Lista de Itens(Admin)</Link>
-            <Link to="/dungeons/relatorio">Relatório</Link>
+            <Link to="/dungeons"> Lista de Itens</Link>
+            <Link to="/admin/dungeons/relatorio">Relatório</Link>
         </nav>
     )
 }

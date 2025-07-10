@@ -1,25 +1,32 @@
-/* minecraft_dungeons/style/theme.css */
-/* Importa as variáveis globais para podermos usá-las */
-@import url('/src/CSS/header.css'); 
+/* src/styles/theme.css */
 
+/* Importa a fonte pixelada do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* --- Variáveis de Cor Inspiradas no Minecraft --- */
 :root {
-  /* Cores temáticas para Dungeons */
-  --dungeons-bg-primary: #2c251e; /* Um marrom escuro e profundo, quase preto */
-  --dungeons-bg-secondary: #3e3529; /* Marrom para painéis e cards */
-  --dungeons-bg-tertiary: #5a4d3c; /* Marrom mais claro para highlights e hover */
-  
-  --dungeons-text-title: #e6a249; /* Dourado/Laranja para títulos */
-  --dungeons-text-body: var(--text-primary); /* Reutiliza o texto primário global (cinza claro) */
-  --dungeons-text-accent: #f0e6d6; /* Um branco-pergaminho para texto de destaque */
+  --mc-dark-gray: #3E3E3E; /* Cor de fundo de menus */
+  --mc-light-gray: #A0A0A0; /* Cor de texto padrão */
+  --mc-white: #FFFFFF;
+  --mc-green: #55FF55;    /* Sucesso / Adicionar */
+  --mc-red: #FF5555;      /* Erro / Excluir */
+  --mc-blue: #5555FF;     /* Informação / Editar */
+  --mc-yellow: #FFFF55;   /* Destaque / Raridade Único */
+  --mc-border-light: #C6C6C6;
+  --mc-border-dark: #555555;
+}
 
-  --dungeons-border-color: #7a6a53; /* Cor de borda */
+/* --- Estilos Globais do Body --- */
+body {
+  background-color: #313131; /* Um fundo escuro para destacar o conteúdo */
+  color: var(--mc-light-gray);
+  font-family: 'Press Start 2P', cursive; /* APLICA A FONTE PIXELADA! */
+  font-size: 14px;
+  image-rendering: pixelated; /* Garante que as imagens fiquem com estilo pixelado */
+}
 
-  /* Cores de Ação */
-  --dungeons-success: #5a8e3a; /* Verde para botões de sucesso/adicionar */
-  --dungeons-danger: #c0392b; /* Vermelho para botões de perigo/excluir */
-  --dungeons-edit: #2980b9; /* Azul para botões de edição */
-
-  /* Fonte Temática (Opcional, mas dá um toque incrível) */
-  /* Você pode adicionar um import do Google Fonts no seu index.html */
-  --dungeons-font: 'IM Fell English SC', serif;
+h1, h2, h3 {
+  color: var(--mc-white);
+  text-shadow: 2px 2px #3E3E3E;
+  letter-spacing: 1px;
 }

@@ -1,51 +1,69 @@
-import '../CSS/footer.css';
+import './footer.css';
+import { Youtube, Instagram, Facebook, Twitter, Twitch } from 'lucide-react';
+
 
 export default function Footer() {
 
   return (
-
-    <footer id="suporte" className="main-footer">
+    <footer className="main-footer">
       <div className="container">
-        <div className="footer-content">
-          <div>
-            <h4>Jogos</h4>
-            <ul>
-              <li><a href="#">Minecraft Java</a></li>
-              <li><a href="#">Minecraft Bedrock</a></li>
-              <li><a href="#">Minecraft Dungeons</a></li>
-              <li><a href="#">Minecraft Legends</a></li>
-            </ul>
+        <div className="footer-top">
+          <div className="footer-links">
+            <div className="footer-column">
+              <h4>JOGOS</h4>
+              <ul>
+                <li><a href="#">Minecraft</a></li>
+                <li><a href="#">Minecraft Dungeons</a></li>
+                <li><a href="#">Minecraft Legends</a></li>
+                <li><a href="#">Minecraft Education</a></li>
+              </ul>
+            </div>
+            <div className="footer-column">
+              <h4>COMUNIDADE</h4>
+              <ul>
+                <li><a href="#">Comunidade</a></li>
+                <li><a href="#">Portal de Aprendizagem</a></li>
+                <li><a href="#">Parcerias</a></li>
+                <li><a href="#">Carreiras</a></li>
+              </ul>
+            </div>
+            <div className="footer-column">
+              <h4>LOJA</h4>
+              <ul>
+                <li><a href="#">Marketplace</a></li>
+                <li><a href="#">Loja Minecraft</a></li>
+              </ul>
+            </div>
+            <div className="footer-column">
+              <h4>SUPORTE</h4>
+              <ul>
+                <li><a href="#">Ajuda</a></li>
+                <li><a href="#">Comentários</a></li>
+                <li><a href="#">Mapa do Site</a></li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <h4>Comunidade</h4>
-            <ul>
-              <li><a href="#">Discord</a></li>
-              <li><a href="#">Reddit</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">YouTube</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Suporte</h4>
-            <ul>
-              <li><a href="#">Central de Ajuda</a></li>
-              <li><a href="#">Relatar Bug</a></li>
-              <li><a href="#">Contato</a></li>
-              <li><a href="#">Status do Servidor</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Empresa</h4>
-            <ul>
-              <li><a href="#">Sobre</a></li>
-              <li><a href="#">Carreiras</a></li>
-              <li><a href="#">Privacidade</a></li>
-              <li><a href="#">Termos de Uso</a></li>
-            </ul>
+          <div className="footer-logo-section">
+             <img src="/minecraft-logo.svg" alt="Minecraft Logo" className="footer-logo" />
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Mojang Studios. Todos os direitos reservados.</p>
+            <div className="region-selector">
+                <span>Português (Brasil)</span>
+            </div>
+            <div className="social-links">
+                <a href="#"><Youtube size={24} /></a>
+                <a href="#"><Instagram size={24} /></a>
+                <a href="#"><Facebook size={24} /></a>
+                <a href="#"><Twitter size={24} /></a>
+                <a href="#"><Twitch size={24} /></a>
+            </div>
+            <div className="legal-links">
+                <p>© {new Date().getFullYear()} Microsoft</p>
+                <a href="#">Política de Privacidade e Cookies</a>
+                <a href="#">Termos de uso</a>
+                <a href="#">Marcas Registradas</a>
+            </div>
         </div>
       </div>
     </footer>

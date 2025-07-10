@@ -1,0 +1,157 @@
+/* adminLegends.css */
+.admin-container {
+  background: #1a1a1a;
+  color: #fff;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Minecraft', sans-serif;
+}
+
+.admin-header {
+  background: #2d2d2d;
+  padding: 15px 20px;
+  border-bottom: 3px solid #5a3921;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header h1 {
+  color: #ffd700;
+  margin: 0;
+}
+
+.nav-link {
+  color: #ffd700;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.nav-link:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+.admin-content {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.admin-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.admin-controls input {
+  flex: 1;
+  padding: 10px;
+  background: #2d2d2d;
+  border: 2px solid #5a3921;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.minecraft-button {
+  background: #5a3921;
+  color: #ffd700;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.minecraft-button:hover {
+  background: #7a4f2d;
+  transform: translateY(-2px);
+}
+
+.minecraft-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #2d2d2d;
+}
+
+.minecraft-table th {
+  background: #5a3921;
+  color: #ffd700;
+  padding: 12px;
+  text-align: left;
+}
+
+.minecraft-table td {
+  padding: 10px;
+  border-bottom: 1px solid #444;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-button {
+  background: #1e3c72;
+  color: #fff;
+}
+
+.delete-button {
+  background: #8b0000;
+  color: #fff;
+}
+
+.item-form {
+  background: #2d2d2d;
+  padding: 20px;
+  margin-top: 30px;
+  border: 2px solid #5a3921;
+  border-radius: 8px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffd700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  background: #333;
+  border: 1px solid #5a3921;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.save-button {
+  background: #2e7d32;
+  color: #fff;
+}
+
+.cancel-button {
+  background: #555;
+  color: #fff;
+}
+
+/* Rarity Colors */
+.rarity-common { color: #a8a8a8; }
+.rarity-uncommon { color: #2ecc71; }
+.rarity-rare { color: #3498db; }
+.rarity-epic { color: #9b59b6; }
+.rarity-legendary { color: #f1c40f; }

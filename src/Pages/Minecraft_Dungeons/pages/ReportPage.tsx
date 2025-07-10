@@ -11,7 +11,7 @@ export default function ReportPage() {
     useEffect(() => {
         setLoading(true);
         setError(null);
-        api.get('/relatorio/itens')
+        api.get('/api/relatorio/itens')
             .then(response => {
                 setReportData(response.data);
             })
