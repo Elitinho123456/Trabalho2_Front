@@ -122,6 +122,16 @@ body {
     background-color: var(--text-secondary);
     color: var(--darker-bg);
 }
+.btn-admin {
+    background-color: #383838;
+    color: var(--text-primary);
+}
+
+.btn-admin:hover {
+    background-color: #4b5563;
+    color: var(--text-white);
+    box-shadow: 0 10px 15px -3px rgba(229, 231, 235, 0.2), 0 4px 6px -4px rgba(229, 231, 235, 0.2);
+}
 
 /* Secções Gerais */
 .features-section,

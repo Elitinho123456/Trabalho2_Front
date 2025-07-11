@@ -23,7 +23,7 @@ export default function Header() {
     <header className={`main-header ${isScrolled || isMenuOpen ? 'scrolled' : ''}`}>
       <div className="container main-nav">
         <a href="/" className="logo-container">
-          <img src="public/minecraft_logo_icon_168099.webp" alt="Minecraft Logo" className="logo" />
+          <img src="/minecraft_logo_icon_168099.webp" alt="Minecraft Logo" className="logo" />
         </a>
 
         <div className="nav-links-desktop">

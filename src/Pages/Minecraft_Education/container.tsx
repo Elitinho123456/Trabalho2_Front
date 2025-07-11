@@ -1,13 +1,37 @@
-// src/Minecraft_Education.tsx
-
 import React from 'react';
-import Header from './Components/Header';     // Caminho para a pasta 
-import Footer from './Components/Footer';     // Caminho para a pasta 
 
+// Tipagem para o array de imagens
+type CarouselImage = {
+  src: string;
+  alt: string;
+  caption: string;
+};
+
+// Componente Button simples substituto
+const Button: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: string }> = ({ variant, children, ...props }) => (
+  <button
+    {...props}
+    style={{
+      padding: '10px 18px',
+      borderRadius: 6,
+      border: 'none',
+      background: variant === 'primary' ? '#2d7d46' : '#555',
+      color: '#fff',
+      fontWeight: 600,
+      fontSize: 16,
+      cursor: 'pointer',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 8,
+    }}
+  >
+    {children}
+  </button>
+);
 
 const Minecraft_Education: React.FC = () => {
   // Imagens para o carrossel "Descubra o Minecraft"
-  const discoverMinecraftImages: CarouselImage[] = [ // Tipagem para o array de imagens
+  const discoverMinecraftImages: CarouselImage[] = [
     {
       src: "/castelo.png",
       alt: "Castelo Minecraft",
@@ -26,8 +50,7 @@ const Minecraft_Education: React.FC = () => {
   ];
 
   return (
-    <> {/* Fragmento React para agrupar sem um div extra */}
-      <Header />
+    <>
       <main className="container-main">
         {/* Seção 1: Descubra o Minecraft */}
         <section id="discover" className="section">
@@ -36,7 +59,15 @@ const Minecraft_Education: React.FC = () => {
             <p className="discover-description">
               Construa tudo que você possa imaginar, descubra mistérios assustadores e sobreviva à noite no melhor jogo do tipo livre. Aventuras inesquecíveis aguardam.
             </p>
-            <Carousel images={discoverMinecraftImages} />
+            {/* Placeholder para o carrossel */}
+            <div className="carousel-placeholder">
+              {discoverMinecraftImages.map((img, idx) => (
+                <figure key={idx} style={{ display: 'inline-block', margin: 8 }}>
+                  <img src={img.src} alt={img.alt} style={{ width: 300, height: 180, objectFit: 'cover', borderRadius: 8 }} />
+                  <figcaption style={{ textAlign: 'center', marginTop: 4, fontSize: 14 }}>{img.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -44,11 +75,11 @@ const Minecraft_Education: React.FC = () => {
         <section id="buy-games" className="section">
           <div className="games-content-wrapper">
             <img
-              src="/mine3.jpg" 
+              src="/mine3.jpg"
               alt="Minecraft Java & Bedrock, Dungeons e Legends Juntos"
               className="buy-games-image"
-              onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => { // Tipagem para o evento de erro
-                e.currentTarget.src = "https://placehold.co/900x400/222222/ffffff?text=Image+Not+Found"; 
+              onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                e.currentTarget.src = "https://placehold.co/900x400/222222/ffffff?text=Image+Not+Found";
               }}
             />
             <div className="buy-text-area">
@@ -58,7 +89,7 @@ const Minecraft_Education: React.FC = () => {
               </p>
               <Button variant="primary">
                 ADQUIRA O PACOTE TRIPLO
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" style={{width: '20px', height: '20px'}}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" style={{ width: '20px', height: '20px' }}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                 </svg>
               </Button>
@@ -81,7 +112,6 @@ const Minecraft_Education: React.FC = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 };

@@ -1,37 +1,434 @@
-/* Legends.css */
-body {
-  margin: 0;
-  background: #121212;
-  color: #fff;
-  font-family: 'Minecraft', sans-serif;
+/* CSS Variables */
+:root {
+  --primary-bg: #1a1f2e;
+  --secondary-bg: #2a3441;
+  --accent-blue: #4a9eff;
+  --accent-orange: #ff6b35;
+  --text-white: #ffffff;
+  --text-gray: #b8c5d1;
+  --card-bg: #252b3a;
+  --border-color: #3a4553;
+  --hover-bg: #3a4553;
 }
 
-.legends-container {
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-white);
+  line-height: 1.6;
+}
+
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #7cb342;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #689f38;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-white);
+  border: 2px solid var(--border-color);
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--hover-bg);
+  border-color: var(--accent-blue);
+}
+
+.btn-orange {
+  background-color: var(--accent-orange);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 16px;
+}
+
+.btn-orange:hover {
+  background-color: #e55a2b;
+}
+
+.btn-blue {
+  background-color: transparent;
+  color: var(--accent-blue);
+  border: 2px solid var(--accent-blue);
+  padding: 14px 30px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-blue:hover {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+/* Header */
+.header {
+  background-color: var(--primary-bg);
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+  padding: 80px 0 120px;
   text-align: center;
 }
 
-.minecraft-button {
-  background: #5a3921;
-  color: #ffd700;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-logo img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 32px;
+  border-radius: 12px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  color: var(--text-gray);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* About Section */
+.about {
+  padding: 80px 0;
+  background-color: var(--secondary-bg);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  color: var(--accent-blue);
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  line-height: 1.8;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Features Section - CORRIGIDO */
+.features {
+  padding: 80px 0;
+  background-color: var(--primary-bg);
+  display: block !important;
+  visibility: visible !important;
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--accent-blue);
+  margin-bottom: 60px;
+  font-weight: 700;
+  display: block !important;
+}
+
+.features-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  visibility: visible !important;
+}
+
+.feature-card {
+  background-color: var(--card-bg);
+  padding: 32px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(74, 158, 255, 0.15);
+  border-color: var(--accent-blue);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 24px;
+  color: var(--accent-blue);
+  display: block !important;
+}
+
+.feature-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: var(--text-white);
+  display: block !important;
+}
+
+.feature-card p {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  display: block !important;
+}
+
+/* Expand Game Section */
+.expand-game {
+  padding: 80px 0;
+  background-color: var(--secondary-bg);
+}
+
+.expand-game h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--accent-blue);
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+.dlc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.dlc-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
   cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s;
-  text-transform: uppercase;
 }
 
-.minecraft-button:hover {
-  background: #7a4f2d;
-  transform: translateY(-2px);
+.dlc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent-blue);
 }
 
-/* Add this if using Minecraft font */
-@font-face {
-  font-family: 'Minecraft';
-  src: url('/fonts/Minecraft.ttf') format('truetype');
+.dlc-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
+
+.dlc-card h3 {
+  padding: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Gallery Section */
+.gallery {
+  padding: 80px 0;
+  background-color: var(--primary-bg);
+}
+
+.gallery h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--accent-blue);
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(74, 158, 255, 0.2);
+  border-color: var(--accent-blue);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-orange,
+  .btn-blue {
+    width: 100%;
+    max-width: 300px;
+    margin: 8px 0;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .about-text {
+    order: 2;
+  }
+  
+  .about-image {
+    order: 1;
+  }
+  
+  .features h2,
+  .expand-game h2,
+  .gallery h2 {
+    font-size: 2rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dlc-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .hero {
+    padding: 60px 0 80px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .about,
+  .features,
+  .expand-game,
+  .gallery {
+    padding: 60px 0;
+  }
+  
+  .feature-card,
+  .dlc-card {
+    padding: 24px;
+  }
+}
+

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
+import { Link as LinkDom  } from 'react-router-dom';
 // Ícones relevantes para a Java Edition
-import {  Server, ToyBrick, Skull, Wrench, Code, Link as LinkIcon } from 'lucide-react';
+import { Server, ToyBrick, Skull, Wrench, Code, Link as LinkIcon } from 'lucide-react';
 import './java.css'; // Importando o CSS específico para a Java Edition
 
 // Componente auxiliar para os cartões de funcionalidades (sem alterações)
@@ -123,6 +124,7 @@ export default function JavaEditionPage() {
                         <div className="cta-buttons">
                             <a href="#" className="btn btn-primary">Comprar para Desktop</a>
                             <a href="#" className="btn btn-secondary">Explorar Servidores</a>
+                            <LinkDom to="/admin" className="btn btn-admin"> Admin Panel </LinkDom>
                         </div>
                     </div>
                 </section>
