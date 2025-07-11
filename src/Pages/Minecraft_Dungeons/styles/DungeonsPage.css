@@ -1,93 +1,329 @@
-/* src/styles/dungeonsShared.css */
+/* DungeonsPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 
-/* --- Container Principal --- */
-
-.item-list-container, .dungeons-form-container { /* Adicionei a classe para o form */
-    background-color: var(--mc-dark-gray);
-    border: 3px solid var(--mc-border-dark);
-    box-shadow: inset 0 0 0 3px var(--mc-border-light);
-    padding: 24px;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+:root {
+    --dungeons-bg: #101822;
+    --dungeons-primary: #4fc3f7; /* Azul claro para acentos */
+    --dungeons-secondary: #ff7043; /* Laranja para CTAs */
+    --dungeons-text: #e0e0e0;
+    --dungeons-text-darker: #a0a0a0;
+    --dungeons-card-bg: rgba(23, 34, 48, 0.7);
+    --dungeons-border: #294868;
 }
 
-/* --- Tabela Estilo Minecraft --- */
-.dungeons-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    border: 2px solid var(--mc-border-dark);
+.dungeons-page-wrapper {
+    background-color: var(--dungeons-bg);
+    color: var(--dungeons-text);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-.dungeons-table th, .dungeons-table td {
-    border: 2px solid var(--mc-border-dark);
-    padding: 12px 10px;
-    text-align: left;
+.dungeons-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-.dungeons-table thead {
-    background-color: #2a2a2a;
-    color: var(--mc-white);
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--dungeons-primary);
 }
 
-.dungeons-table tbody tr:nth-child(even) {
-    background-color: #4a4a4a;
-}
-.dungeons-table tbody tr:nth-child(odd) {
-    background-color: #555555;
-}
-
-/* --- Barra de Ações --- */
-.dungeons-actions-bar {
+/* --- Hero Section --- */
+.dungeons-hero {
+    position: relative;
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+.dungeons-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/dungeons-hero-bg.jpg') no-repeat center center/cover;
+    filter: brightness(0.6);
+    z-index: 1;
+    transform: scale(1.1);
+}
+
+.dungeons-hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dungeons-main-logo {
+    max-width: 80%;
+    width: 500px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.dungeons-hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    color: white;
+}
+
+.dungeons-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    color: var(--dungeons-text);
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+}
+
+.dungeons-cta-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
     flex-wrap: wrap;
-    gap: 15px;
+    justify-content: center;
 }
 
-/* --- Botões Quadrados --- */
-.btn {
-    font-family: 'Press Start 2P', cursive;
-    color: var(--mc-white);
+.dungeons-btn {
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1rem;
     text-decoration: none;
-    padding: 12px 20px;
-    border: 2px solid var(--mc-border-dark);
-    box-shadow: inset 0 0 0 2px var(--mc-border-light);
-    background-color: var(--mc-light-gray);
-    cursor: pointer;
-    text-shadow: 1px 1px #3E3E3E;
-    transition: all 0.1s ease-in-out;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
-.btn:hover {
-    filter: brightness(1.2);
-    transform: translateY(-2px);
+.dungeons-btn-primary {
+    background-color: var(--dungeons-secondary);
+    color: white;
+}
+.dungeons-btn-primary:hover {
+    background-color: #e65100;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-/* Cores específicas para cada ação */
-.btn-add {
-    background-color: #2E7D32; /* Verde escuro */
-    color: var(--mc-green);
+.dungeons-btn-secondary {
+    background-color: transparent;
+    border-color: var(--dungeons-primary);
+    color: var(--dungeons-primary);
 }
-.btn-edit-link, .btn-edit {
-    background-color: #1565C0; /* Azul escuro */
-    color: var(--mc-blue);
-    padding: 6px 10px; /* Botões de ação menores */
-    font-size: 12px;
-}
-.btn-delete {
-    background-color: #C62828; /* Vermelho escuro */
-    color: var(--mc-red);
-    padding: 6px 10px;
-    font-size: 12px;
+.dungeons-btn-secondary:hover {
+    background-color: var(--dungeons-primary);
+    color: var(--dungeons-bg);
+    transform: translateY(-3px);
 }
 
-/* --- Links de Edição (para se parecerem com botões) --- */
-.btn-edit-link {
-    display: inline-block;
+/* --- Admin Link --- */
+.admin-link-corner {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    z-index: 1000;
+}
+.dungeons-btn-admin {
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    transition: all 0.2s ease;
+}
+.dungeons-btn-admin:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+
+/* --- General Section Styling --- */
+.dungeons-section {
+    padding: 6rem 0;
+}
+
+.about-section {
+    background-color: #0c121a;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--dungeons-primary);
+    margin-bottom: 1.5rem;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+/* --- Features Section --- */
+.dungeons-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.dungeons-feature-card {
+    background-color: var(--dungeons-card-bg);
+    border: 1px solid var(--dungeons-border);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dungeons-feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.dungeons-feature-icon {
+    color: var(--dungeons-primary);
+    margin-bottom: 1.5rem;
+}
+
+.dungeons-feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.dungeons-feature-card p {
+    color: var(--dungeons-text-darker);
+}
+
+/* --- DLC Section --- */
+.dlc-section {
+    background-color: #0c121a;
+}
+.dlc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.dlc-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.dlc-card:hover {
+    transform: scale(1.05);
+}
+.dlc-image {
+    width: 100%;
+    display: block;
+}
+.dlc-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 1.5rem 1rem 1rem;
+    font-weight: bold;
+    color: white;
+    font-size: 1rem;
+}
+
+/* --- Gallery Section --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* --- Final CTA Section --- */
+.final-cta-section {
+    background: url('/dungeons-final-cta.jpg') no-repeat center center/cover;
+    padding: 8rem 0;
+}
+.final-cta-content {
+    text-align: center;
+}
+.final-cta-content h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+.final-cta-content .dungeons-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+/* --- Scroll Reveal Animation --- */
+.reveal {
+    position: relative;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- Responsive --- */
+@media(max-width: 992px) {
+    .dungeons-hero h1, .final-cta-content h2 { font-size: 2.5rem; }
+    .about-content { grid-template-columns: 1fr; }
+    .about-image { order: -1; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(max-width: 768px) {
+    .dungeons-hero h1 { font-size: 2rem; }
+    .dungeons-hero p { font-size: 1rem; }
+    .section-title { font-size: 2rem; }
+}
+
+@media(max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .dlc-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .dungeons-btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import api from '../service/api';
 import type { Item } from '../types'; // Verifique se o caminho do 'types' está correto
 import '../styles/ItemList.css'; // Mantenha seus estilos
-import '../styles/dungeonsShared.css';
+
 
 export default function ItemList() {
     const [itens, setItens] = useState<Item[]>([]);

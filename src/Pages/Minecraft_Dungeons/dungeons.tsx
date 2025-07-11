@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import './styles/dungeons.css'; 
-import './styles/dungeonsShared.css';
+
 
 export default function Dungeons() {
   return (

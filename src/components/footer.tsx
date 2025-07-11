@@ -1,4 +1,4 @@
-import './footer.css';
+import '../CSS/footer.css';
 import { Youtube, Instagram, Facebook, Twitter, Twitch } from 'lucide-react';
 
 

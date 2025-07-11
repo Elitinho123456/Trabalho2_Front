@@ -47,7 +47,7 @@ export default function DungeonsPage() {
             <header className="dungeons-hero">
                 <div className="dungeons-hero-bg"></div>
                 <div className="dungeons-hero-content">
-                    <img src="/dungeons_logo.png" alt="Minecraft Dungeons Logo" className="dungeons-main-logo" />
+                    <img src="/Dungeons_logo.webp" alt="Minecraft Dungeons Logo" className="dungeons-main-logo" />
                     <h1>UNA-SE. LUTE. SOBREVIVA.</h1>
                     <p>Enfrente hordas de criaturas em uma aventura de ação épica no universo Minecraft.</p>
                     <div className="dungeons-cta-buttons">
@@ -71,7 +71,7 @@ export default function DungeonsPage() {
                                 <p>Lute em um novo jogo de ação e aventura, inspirado em exploradores de masmorras clássicos e ambientado no universo Minecraft! Enfrente as masmorras sozinho ou junte-se a amigos! Até quatro jogadores podem lutar juntos através de níveis repletos de ação, tesouros e totalmente variados, tudo em uma missão épica para derrotar o maligno Arch-Illager!</p>
                             </div>
                             <div className="about-image">
-                                <img src="/dungeons-about.png" alt="Grupo de heróis lutando" />
+                                <img src="https://www.cafemaisgeek.com/wp-content/uploads/2020/05/Minecraft-Dungeons-Pic-1.jpg" alt="Grupo de heróis lutando" />
                             </div>
                         </div>
                     </div>
@@ -93,12 +93,12 @@ export default function DungeonsPage() {
                     <div className="dungeons-container">
                         <h2 className="section-title">EXPANDA SEU JOGO</h2>
                         <div className="dlc-grid">
-                           <DlcCard imgSrc="/dlc-jungle.jpg" title="Jungle Awakens" />
-                           <DlcCard imgSrc="/dlc-winter.jpg" title="Creeping Winter" />
-                           <DlcCard imgSrc="/dlc-peaks.jpg" title="Howling Peaks" />
-                           <DlcCard imgSrc="/dlc-nether.jpg" title="Flames of the Nether" />
-                           <DlcCard imgSrc="/dlc-depths.jpg" title="Hidden Depths" />
-                           <DlcCard imgSrc="/dlc-echoing.jpg" title="Echoing Void" />
+                           <DlcCard imgSrc="/dlc-jungle.avif" title="Jungle Awakens" />
+                           <DlcCard imgSrc="/dlc_winter.avif" title="Creeping Winter" />
+                           <DlcCard imgSrc="/dlc-peaks.avif" title="Howling Peaks" />
+                           <DlcCard imgSrc="/dlc-nether.avif" title="Flames of the Nether" />
+                           <DlcCard imgSrc="/dlc-depths.avif" title="Hidden Depths" />
+                           <DlcCard imgSrc="/dlc-echoing.avif" title="Echoing Void" />
                         </div>
                     </div>
                 </section>

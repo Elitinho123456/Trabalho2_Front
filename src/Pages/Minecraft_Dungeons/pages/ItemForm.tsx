@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom"
 import api from '../service/api'
 import type { Categoria } from "../types";
 import '../styles/itemForm.css'
-import '../styles/dungeonsShared.css'
 
 export default function ItemForm() {
     const { id } = useParams<{ id: string }>();
