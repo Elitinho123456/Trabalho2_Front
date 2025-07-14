@@ -1,5 +1,8 @@
 import ItemList from './Pages/Minecraft_Dungeons/pages/ItemList.tsx'
-import ItemForm from './Pages/Minecraft_Dungeons/pages/ItemForm.tsx'
+import ItemForm from './Pages/Minecraft_Dungeons/Admin/ItemForm.tsx'
+import EducationPage from './Pages/Minecraft_Education/EducationPage.tsx'
+import AdminPage from './Pages/Minecraft_Education/AminPage.tsx'
+import ReportPage from './Pages/Minecraft_Dungeons/pages/ReportPage.tsx'
 import MinecraftLegendsPage from './Pages/Minecraft_Legends/Legends.tsx'
 import Home from './Pages/Home/home.tsx'
 import JavaEditionPage from './Pages/Minecraft_Java/java.tsx'
@@ -12,7 +15,6 @@ import ManageProducts from './Pages/Minecraft_Java/Admin/Management/ManageProduc
 import ManageUsers from './Pages/Minecraft_Java/Admin/Management/ManageUsers.tsx'
 
 import { createBrowserRouter } from 'react-router-dom'
-
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +49,16 @@ export const router = createBrowserRouter([
     path: '/Legends',
     element: <MinecraftLegendsPage />
   },
+  //Education
+  {
+path: '/Education',
+element: <EducationPage />
+  },
+{
+  path:'/admin/education',
+  element: <AdminPage/>
+},
+  //dungeons
   {
     path: '/Dungeons',
     element: <DungeonsPage />,
@@ -69,7 +81,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'relatorio',
-        element: <div><h1>TESTE DO RELATÓRIO FUNCIONOU</h1></div>,
+        element: <ReportPage/>,
       }
     ]
   }
