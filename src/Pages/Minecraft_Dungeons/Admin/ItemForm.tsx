@@ -17,7 +17,7 @@ export default function ItemForm() {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        api.get('/api/categoria').then(response => {
+        api.get('/api/categorias').then(response => {
             setCategorias(response.data);
         }).catch(() => setError('Não foi possível carregar as categorias'));
     }, []);
@@ -52,7 +52,7 @@ export default function ItemForm() {
                 await api.post('/api/itens', itemData)
                 alert('item criado com sucesso!');
             }
-            navigate('/dungeons');
+            navigate('/admin/dungeons');
         } catch (err) {
             setError("Ocooreu um erro ao salvar. Tente Novamente.");
             console.error(err)
