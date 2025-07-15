@@ -1,0 +1,90 @@
+/* Em seu arquivo Management.css ou filtros.css */
+
+/* Estilos gerais para inputs de texto e selects */
+input[type="text"],
+input[type="url"],
+/* Se você usar input type="url" para download_url */
+textarea,
+select {
+    width: 100%;
+    /* Ocupa a largura total do contêiner */
+    padding: 10px;
+    margin-bottom: 15px;
+    /* Espaçamento abaixo do campo */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Garante que padding e border sejam incluídos na largura */
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Foco nos campos */
+input[type="text"]:focus,
+input[type="url"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+    /* Cor da borda ao focar */
+    outline: none;
+    /* Remove o contorno padrão do navegador */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    /* Sombra suave ao focar */
+}
+
+/* Estilos específicos para o select */
+select {
+    /* Aparência do select em diferentes navegadores */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M9.293%2012.95l.707.707L15.657%208l-1.414-1.414L10%2010.828%206.757%207.586%205.343%209z%22%2F%3E%3C%2Fsvg%3E');
+    /* Ícone de seta */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px;
+    /* Espaço para o ícone de seta */
+}
+
+/* Estilos para os inputs e selects dentro do modal (se quiser diferenciá-los) */
+.modal-content input[type="text"],
+.modal-content select,
+.modal-content textarea {
+    /* Pode ter estilos ligeiramente diferentes se necessário */
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+}
+
+/* Estilos para o campo de filtro (input e select dentro de .filters) */
+.filters input[type="text"],
+.filters select {
+    width: auto;
+    /* Permite que o campo ocupe o espaço necessário, não 100% */
+    margin-right: 10px;
+    flex-grow: 1;
+    /* Permite que cresçam dentro do contêiner flex */
+    min-width: 180px;
+    /* Largura mínima para visibilidade */
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    /* Espaçamento entre os filtros */
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    /* Permite que os itens quebrem a linha em telas menores */
+    align-items: center;
+}
+
+/* Estilo para labels dos formulários */
+.form-group label {
+    display: block;
+    /* Garante que a label fique em sua própria linha */
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}

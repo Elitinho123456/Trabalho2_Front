@@ -17,12 +17,12 @@ const MinecraftDungeons: React.FC = () => {
         <div className="container">
           <div className="hero-content">
             <div className="hero-logo">
-              <img src="https://www.minecraft.net/content/dam/games/dungeons/key-art/Dungeons_PMP_Collection-Carousel_0_Creeping-Winter_1280x768.jpg" alt="Minecraft Dungeons" />
+              <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/73206bd9-257c-4f50-b1f3-59a306e24084/dfuc0jm-c13724ea-539c-421e-9618-5364a6ffc259.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzczMjA2YmQ5LTI1N2MtNGY1MC1iMWYzLTU5YTMwNmUyNDA4NFwvZGZ1YzBqbS1jMTM3MjRlYS01MzljLTQyMWUtOTYxOC01MzY0YTZmZmMyNTkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.zuzk8mWxJu1lWzN7iB0ebbl-ZApDxAfa3ts6d_u0BGU" alt="Minecraft Legends" />
             </div>
-            <h1 className="hero-title">UNA-SE. ALAÚDE. SOBREVIVA.</h1>
+            <h1 className="hero-title">Venha Nesta Aventura Maravilhosa!</h1>
             <p className="hero-description">
               Enfrente hordas de criaturas em uma aventura de ação épica
-              no universo Minecraft.
+              no universo de Minecraft.
             </p>
             <div className="hero-buttons">
               <button className="btn-orange">COMPRE AGORA</button>
@@ -47,7 +47,7 @@ const MinecraftDungeons: React.FC = () => {
               </p>
             </div>
             <div className="about-image">
-              <img src="https://www.minecraft.net/content/dam/games/dungeons/screenshots/Dungeons_PMP_Screenshot_1_1920x1080.jpg" alt="Minecraft Dungeons Gameplay" />
+              <img src="https://i.ytimg.com/vi/lw6f-tJKoao/maxresdefault.jpg" alt="Minecraft Dungeons Gameplay" />
             </div>
           </div>
         </div>
@@ -60,8 +60,9 @@ const MinecraftDungeons: React.FC = () => {
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20 12h-4V4h-4v8H8V4H4v8H0v2h4v8h4v-8h4v8h4v-8h4v-2zM12 2L2 7V10C2 16 6 20.5 12 22C18 20.5 22 16 22 10V7L12 2Z"/>
+                {/* Ícone de bússola para MUNDO DE AVENTURA */}
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.19 7.19-4.24 2.46-2.46 4.24 4.24-2.46 2.46-4.24zM12 4c4.41 0 8 3.59 8 8s-3.59 8-8 8-8-3.59-8-8 3.59-8 8-8z"/>
                 </svg>
               </div>
               <h3>MUNDO DE AVENTURA</h3>
@@ -87,8 +88,9 @@ const MinecraftDungeons: React.FC = () => {
             </div>
             <div className="feature-card">
               <div className="feature-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d=""/>
+                {/* Ícone de 4 jogadores para MODO MULTIJOGADOR */}
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C13 14.17 8.33 13 6 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
                 </svg>
               </div>
               <h3>MODO MULTIJOGADOR</h3>
@@ -129,7 +131,7 @@ const MinecraftDungeons: React.FC = () => {
               <h3>Jogo Multiplayer</h3>
             </div>
             <div className="dlc-card">
-              <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/MinecraftLegends_screenshot2.jpg"
+              <img src="https://xboxwire.thesourcemediaassets.com/sites/8/2023/02/Minecraft_Legends-3a62cfe29bcc6081e50e.jpg"
                alt="Sistema de Dominação" />
               <h3>Sistema de Dominação</h3>
             </div>
@@ -140,16 +142,16 @@ const MinecraftDungeons: React.FC = () => {
       {/* Gallery Section */}
       <section className="gallery">
         <div className="container">
-          <h2>JOGOS DIVERSOS DE MINE</h2>
+          <h2>MODS DIVERSOS DE MINE</h2>
           <div className="gallery-grid">
             <div className="gallery-item">
-              <img src="https://xboxwire.thesourcemediaassets.com/sites/8/2024/05/Hero-bdef2532984d6fcafc40.jpg" alt="Minecraft" />
+              <img src="https://i.ytimg.com/vi/VwZl8ldIWvQ/maxresdefault.jpg" alt="Zumbi" />
             </div>
             <div className="gallery-item">
               <img src="https://godlike.host/wp-content/uploads/2024/12/2-1-2.jpg.webp" alt="Pokemon" />
             </div>
             <div className="gallery-item">
-              <img src="https://i.insider.com/6206e748e2fe3c0019ea50c2?width=864&format=jpeg" alt="Java" />
+              <img src="https://i.ytimg.com/vi/byTC5v0WI_E/maxresdefault.jpg" alt="Dinossauro" />
             </div>
             <div className="gallery-item">
               <img src="https://static.beebom.com/wp-content/uploads/2024/09/Anime-mods-One-Piece-character-in-the-Minecraft-world.jpg?w=1250&quality=75" alt="Animes" />
@@ -168,4 +170,3 @@ const MinecraftDungeons: React.FC = () => {
 };
 
 export default MinecraftDungeons;
-

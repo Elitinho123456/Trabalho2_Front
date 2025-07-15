@@ -1,157 +1,250 @@
-/* adminLegends.css */
+/* src/admin/adminLegends.css (ou crie um novo como adminButtons.css e importe) */
+
+/* Estilos gerais do painel de administração */
 .admin-container {
-  background: #1a1a1a;
-  color: #fff;
-  min-height: 100vh;
-  padding: 20px;
-  font-family: 'Minecraft', sans-serif;
+    font-family: 'Minecraft', sans-serif; /* Assumindo que você tem uma fonte Minecraft */
+    background-color: #36393f; /* Fundo escuro */
+    color: #f0f0f0; /* Texto claro */
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .admin-header {
-  background: #2d2d2d;
-  padding: 15px 20px;
-  border-bottom: 3px solid #5a3921;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background-color: #2f3136;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .admin-header h1 {
-  color: #ffd700;
-  margin: 0;
+    color: #7289da; /* Um azul/roxo vibrante */
+    margin: 0;
+    font-size: 2em;
+    text-shadow: 2px 2px #23272a;
 }
 
-.nav-link {
-  color: #ffd700;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background 0.3s;
+.admin-header nav .nav-link {
+    color: #99aab5;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-  background: rgba(255, 215, 0, 0.1);
+.admin-header nav .nav-link:hover {
+    color: #ffffff;
 }
 
-.admin-content {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
+/* 🆕 Adicione estes estilos para o botão de acesso ao CRUD */
+.admin-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Verde vibrante do Minecraft */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 0 #388E3C; /* Sombra para dar profundidade */
+    font-weight: bold;
+    text-shadow: 1px 1px #2E7D32;
+    letter-spacing: 0.5px;
 }
 
-.admin-controls {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+.admin-button:hover {
+    background-color: #45a049; /* Escurece um pouco ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+    box-shadow: 0 6px 0 #307a33;
 }
 
-.admin-controls input {
-  flex: 1;
-  padding: 10px;
-  background: #2d2d2d;
-  border: 2px solid #5a3921;
-  color: #fff;
-  border-radius: 4px;
+.admin-button:active {
+    background-color: #3d8c41; /* Mais escuro ao clicar */
+    transform: translateY(0); /* Volta à posição original */
+    box-shadow: 0 2px 0 #28542c;
 }
 
+/* Reaproveitando estilos de botões existentes no CRUD para ter consistência */
 .minecraft-button {
-  background: #5a3921;
-  color: #ffd700;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s;
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff; /* Azul para "Adicionar" */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 0 #0056b3;
 }
 
 .minecraft-button:hover {
-  background: #7a4f2d;
-  transform: translateY(-2px);
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 0 #004085;
+}
+
+.minecraft-button:active {
+    background-color: #004085;
+    transform: translateY(0);
+    box-shadow: 0 1px 0 #002c5c;
+}
+
+
+/* Outros estilos existentes para tabela, formulário, etc. */
+.admin-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.admin-controls input[type="text"] {
+    padding: 10px;
+    border: 1px solid #5a5a5a;
+    border-radius: 5px;
+    background-color: #424549;
+    color: #f0f0f0;
+    width: 60%;
 }
 
 .minecraft-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  background: #2d2d2d;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #2f3136;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.minecraft-table th, .minecraft-table td {
+    border: 1px solid #424549;
+    padding: 12px;
+    text-align: left;
 }
 
 .minecraft-table th {
-  background: #5a3921;
-  color: #ffd700;
-  padding: 12px;
-  text-align: left;
+    background-color: #23272a;
+    color: #7289da;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.minecraft-table td {
-  padding: 10px;
-  border-bottom: 1px solid #444;
+.minecraft-table tr:nth-child(even) {
+    background-color: #36393f;
 }
 
-.actions {
-  display: flex;
-  gap: 8px;
+.minecraft-table tr:hover {
+    background-color: #424549;
+}
+
+.actions button {
+    margin-right: 8px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
 }
 
 .edit-button {
-  background: #1e3c72;
-  color: #fff;
+    background-color: #f39c12; /* Laranja */
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #e67e22;
 }
 
 .delete-button {
-  background: #8b0000;
-  color: #fff;
+    background-color: #e74c3c; /* Vermelho */
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
 }
 
 .item-form {
-  background: #2d2d2d;
-  padding: 20px;
-  margin-top: 30px;
-  border: 2px solid #5a3921;
-  border-radius: 8px;
+    background-color: #2f3136;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.item-form h2 {
+    color: #7289da;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .form-group {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #ffd700;
+    display: block;
+    margin-bottom: 5px;
+    color: #99aab5;
+    font-weight: bold;
 }
 
 .form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 8px;
-  background: #333;
-  border: 1px solid #5a3921;
-  color: #fff;
-  border-radius: 4px;
+.form-group select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #5a5a5a;
+    border-radius: 5px;
+    background-color: #424549;
+    color: #f0f0f0;
+    box-sizing: border-box; /* Garante que padding não aumente a largura total */
+}
+
+.form-group input[type="checkbox"] {
+    width: auto; /* Para checkboxes, não ocupam 100% */
+    margin-right: 5px;
 }
 
 .form-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    margin-left: 10px;
 }
 
 .save-button {
-  background: #2e7d32;
-  color: #fff;
+    background-color: #2ecc71; /* Verde */
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #27ae60;
 }
 
 .cancel-button {
-  background: #555;
-  color: #fff;
+    background-color: #95a5a6; /* Cinza */
+    color: white;
 }
 
-/* Rarity Colors */
-.rarity-common { color: #a8a8a8; }
-.rarity-uncommon { color: #2ecc71; }
-.rarity-rare { color: #3498db; }
-.rarity-epic { color: #9b59b6; }
-.rarity-legendary { color: #f1c40f; }
+.cancel-button:hover {
+    background-color: #7f8c8d;
+}

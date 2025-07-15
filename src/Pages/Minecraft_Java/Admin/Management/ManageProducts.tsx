@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PlusCircle, Edit, Trash2 } from 'lucide-react';
 import '../../../../CSS/Management.css'
+import '../../../../CSS/filtros.css'
 
 // Interfaces
 interface Product {
