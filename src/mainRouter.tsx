@@ -10,9 +10,10 @@ import Dungeons from './Pages/Minecraft_Dungeons/dungeons.tsx'
 import Bedrock from './Pages/minecraft_bedrock/contanier.tsx'
 import DungeonsPage from './Pages/Minecraft_Dungeons/pages/DungeonsPage.tsx'
 //import Legends from 'Pages/minecraft_Legends/container.tsx'
-import AdminDashboard  from './Pages/Minecraft_Java/Admin/AdminDashboard.tsx'
+import AdminDashboard from './Pages/Minecraft_Java/Admin/AdminDashboard.tsx'
 import ManageProducts from './Pages/Minecraft_Java/Admin/Management/ManageProducts.tsx'
 import ManageUsers from './Pages/Minecraft_Java/Admin/Management/ManageUsers.tsx'
+import ViewReports from './Pages/Minecraft_Java/Admin/Management/ViewReports.tsx'
 
 import { createBrowserRouter } from 'react-router-dom'
 
@@ -43,6 +44,12 @@ export const router = createBrowserRouter([
     path: '/Admin/users',
     element: <ManageUsers />
   },
+  {
+    path: '/Admin/reports',
+    element: <ViewReports />
+  },
+  {
+  },
 
 
   {
@@ -51,22 +58,22 @@ export const router = createBrowserRouter([
   },
   //Education
   {
-path: '/Education',
-element: <EducationPage />
+    path: '/Education',
+    element: <EducationPage />
   },
-{
-  path:'/admin/education',
-  element: <AdminPage/>
-},
+  {
+    path: '/admin/education',
+    element: <AdminPage />
+  },
   //dungeons
   {
     path: '/Dungeons',
     element: <DungeonsPage />,
   },
-    {
-      path:'/admin/dungeons',
-      element:<Dungeons />,
-      children: [
+  {
+    path: '/admin/dungeons',
+    element: <Dungeons />,
+    children: [
       {
         path: '',
         element: <ItemList />,
@@ -81,7 +88,7 @@ element: <EducationPage />
       },
       {
         path: 'relatorio',
-        element: <ReportPage/>,
+        element: <ReportPage />,
       }
     ]
   }
