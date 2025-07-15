@@ -1,18 +1,16 @@
-/* contanier.css */
+/* container.css */
 /**
- * Estilos globais para a aplicação Minecraft
- * Inclui estilos para:
- * - Layout geral
- * - Componentes reutilizáveis
- * - Página principal
- * - Painel de administração
+ * Estilos globais para a aplicação Minecraft Bedrock
+ * Este arquivo foi atualizado para:
+ * - Ocultar o cabeçalho.
+ * - Melhorar a aparência dos botões de navegação.
+ * - Adicionar um botão de "Conecte-se" acima do rodapé.
+ * - Refatorar e limpar estilos desnecessários/desorganizados.
+ * - **Mover os botões "Home", "Painel Admin" e "Login/Sair" para perto do footer.**
  */
 
-/* ==================== ESTILOS GLOBAIS ==================== */
+/* ==================== ESTILOS GLOBAIS & RESET ==================== */
 
-/**
- * Reset básico e estilos globais
- */
 body {
   margin: 0;
   padding: 0;
@@ -20,342 +18,355 @@ body {
   color: white; /* Texto branco */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/**
- * Container principal
- * Garante que o footer fique no fundo da página
- */
+/* Garante que o conteúdo ocupe a altura mínima da tela */
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* ==================== HEADER ==================== */
+/* Estilos para o conteúdo principal, empurra o footer para baixo */
+.main-content {
+  flex-grow: 1; /* Permite que o conteúdo ocupe o espaço restante */
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box; /* Garante que padding não adicione largura */
+}
 
-/**
- * Estilos do cabeçalho
- */
+/* ==================== HEADER (OCULTADO) ==================== */
+
+/* Oculta completamente o cabeçalho */
 .header {
-  background-color: #262626;
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  position: sticky;
-  top: 0;
-  z-index: 50;
+  display: none !important;
 }
 
-/**
- * Container do cabeçalho
- * Alinha logo, navegação e ações
- */
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/* ==================== NAVEGAÇÃO & BOTÕES GERAIS ==================== */
 
-/**
- * Estilo do logo
- */
-.logo {
-  font-family: 'Minecraft', sans-serif;
-  font-size: 2.25rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.6);
-}
-
-/**
- * Navegação principal
- */
-.main-nav ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.main-nav a {
+/* Estilo base para botões gerais da aplicação */
+.button-primary {
+  background-color: #16a34a; /* Verde Minecraft */
   color: white;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.main-nav a:hover {
-  color: #d1d5db; /* Cor mais clara no hover */
-}
-
-/**
- * Ações do cabeçalho (botões, ícones)
- */
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-/* ==================== BOTÕES ==================== */
-
-/**
- * Estilo base para botões
- */
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
-  border: 2px solid transparent;
 }
 
-/**
- * Botão primário (verde)
- */
-.button.primary {
-  background-color: #16a34a;
-  border-color: #16a34a;
-  color: white;
-}
-
-.button.primary:hover {
+.button-primary:hover {
   background-color: #15803d;
-  border-color: #15803d;
+  transform: translateY(-2px);
 }
 
-/**
- * Botão secundário (cinza)
- */
-.button.secondary {
-  background-color: #4a5568;
-  border-color: #4a5568;
+.button-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button-secondary {
+  background-color: #4a5568; /* Cinza escuro */
   color: white;
-}
-
-.button.secondary:hover {
-  background-color: #2d3748;
-  border-color: #2d3748;
-}
-
-/**
- * Botão "Compre Agora" no header
- */
-.buy-now-button {
-  border-color: #16a34a;
-  background-color: transparent;
-}
-
-.buy-now-button:hover {
-  background-color: #16a34a;
-}
-
-/* ==================== LOADING SPINNER ==================== */
-
-.button.loading {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-.spinner {
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(255,255,255,0.3);
-  border-radius: 50%;
-  border-top-color: white;
-  animation: spin 1s ease-in-out infinite;
-  margin: 0 auto;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* ==================== CONTEÚDO PRINCIPAL ==================== */
-
-/**
- * Container do conteúdo principal
- */
-.container-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  flex-grow: 1; /* Ocupa espaço disponível */
-}
-
-/**
- * Estilos para seções
- */
-.section {
-  padding: 4rem 0;
-  border-bottom: 1px solid #374151;
-}
-
-.section:last-child {
-  border-bottom: none;
-}
-
-/**
- * Conteúdo centralizado nas seções
- */
-.section-content {
-  text-align: center;
-}
-
-/**
- * Títulos das seções
- */
-.discover-title,
-.buy-title,
-.crud-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
 }
 
-/**
- * Descrições das seções
- */
-.discover-description,
-.buy-description,
-.crud-description {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
-  color: #d1d5db; /* Texto cinza claro */
+.button-secondary:hover {
+  background-color: #2d3748;
+  transform: translateY(-2px);
+}
+
+.button-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button-danger {
+  background-color: #ef4444; /* Vermelho de perigo */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.button-danger:hover {
+  background-color: #dc2626;
+}
+
+.small-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+
+/* ==================== PÁGINAS & SEÇÕES ==================== */
+
+.home-page {
+  padding: 0 0 2rem 0; /* Espaço na parte inferior */
+}
+
+.hero-section {
+  text-align: center;
+  padding: 4rem 0;
+  margin-bottom: 2rem;
+}
+
+.latest-updates {
+  background-color: #262626;
+  padding: 3rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  margin-top: 2rem;
+}
+
+.latest-updates h2 {
+  font-size: 2.2rem;
+  color: #16a34a;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.update-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.update-card {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  border: 1px solid #374151;
+  transition: transform 0.3s ease;
+}
+
+.update-card:hover {
+  transform: translateY(-5px);
+}
+
+.update-card h3 {
+  color: #d1d5db;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.update-card p {
+  color: #9ca3af;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
 }
 
 /* ==================== CARROSSEL ==================== */
 
-/**
- * Container do carrossel
- */
-.image-carousel {
+.carousel {
   position: relative;
-  max-width: 900px;
-  margin: 2rem auto;
+  width: 100%;
+  max-width: 1000px; /* Largura máxima para o carrossel */
+  height: 450px; /* Altura fixa */
+  margin: 0 auto 3rem auto;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  background-color: #262626; /* Fundo caso não haja imagem */
 }
 
-/**
- * Imagem do carrossel
- */
-.carousel-image {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  display: block;
-}
-
-/**
- * Navegação do carrossel (setas)
- */
-.carousel-nav {
+.carousel-item {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
   display: flex;
-  justify-content: space-between;
-  padding: 0 1rem;
-}
-
-/**
- * Botões de navegação do carrossel
- */
-.nav-arrow {
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: background-color 0.2s;
-  display: flex;
-  align-items: center;
+  align-items: flex-end; /* Alinha a legenda na parte inferior */
   justify-content: center;
 }
 
-.nav-arrow:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+.carousel-item.active {
+  opacity: 1;
 }
 
-.nav-arrow svg {
-  width: 2rem;
-  height: 2rem;
-}
-
-/**
- * Legenda do carrossel
- */
 .carousel-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
   color: white;
-  padding: 1.5rem;
+  padding: 2rem;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-caption h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .carousel-caption p {
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 2px black;
+  margin: 0;
+  font-size: 1.1rem;
+  color: #d1d5db;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-/* ==================== SEÇÃO DE COMPRA ==================== */
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
 
-/**
- * Container da seção de compra
- */
-.games-content-wrapper {
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dot.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+.no-carousel {
+    text-align: center;
+    color: #9ca3af;
+    padding: 3rem;
+    font-size: 1.2rem;
+    background-color: #262626;
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ==================== FOOTER & NAVEGAÇÃO INFERIOR ==================== */
+
+/* Container para os botões de navegação e o botão de "Conecte-se" */
+.bottom-nav-section {
+  background-color: #262626; /* Fundo similar ao footer */
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid #374151;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  margin-top: 2rem;
-  background-color: #262626;
-  padding: 2rem;
+  gap: 1.5rem; /* Espaçamento entre os grupos de botões */
+}
+
+/* Botões de navegação (Home, Admin, Login/Sair) */
+.bottom-nav-section ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Para centralizar os itens dentro */
+}
+
+.bottom-nav-section .nav-button {
+  background-color: #2e7d32; /* Verde vibrante */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bottom-nav-section .nav-button:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+}
+
+.bottom-nav-section .nav-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.bottom-nav-section .logout-button {
+    background-color: #d32f2f; /* Vermelho para logout */
+}
+
+.bottom-nav-section .logout-button:hover {
+    background-color: #e53935;
+}
+
+.bottom-nav-section .login-button {
+    background-color: #007bff; /* Azul para Entrar */
+}
+
+.bottom-nav-section .login-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Botão "Conecte-se" */
+.connect-button {
+  background-color: #007bff; /* Azul para "Conecte-se" */
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
   border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  width: auto; /* Permite que o botão se ajuste ao conteúdo */
+  max-width: 300px; /* Limita a largura para botões em telas maiores */
 }
 
-/**
- * Imagem da seção de compra
- */
-.buy-games-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+.connect-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
 }
 
-/**
- * Área de texto da seção de compra
- */
-.buy-text-area {
-  text-align: center;
+.connect-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* ==================== FOOTER ==================== */
-
-/**
- * Estilos do rodapé
- */
 .footer {
   background-color: #262626;
   color: #9ca3af;
@@ -363,390 +374,102 @@ body {
   text-align: center;
   font-size: 0.9rem;
   margin-top: auto; /* Empurra para o final */
-  position: relative;
-}
-
-.footer p {
-  margin: 0.25rem 0;
-}
-
-.footer-admin-link {
-  margin-top: 1.5rem;
-}
-
-.admin-access-button {
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-}
-
-/* ==================== PAINEL DE ADMINISTRAÇÃO ==================== */
-
-/**
- * Abas de navegação do admin
- */
-.admin-tabs {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  justify-content: center;
-}
-
-/**
- * Cartão de formulário (CRUD)
- */
-.crud-card {
-  background-color: #2d3748;
-  padding: 2rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-}
-
-.crud-card-title {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: #16a34a;
-}
-
-/**
- * Grupos de formulário
- */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #d1d5db;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #1a1a1a;
-  border: 1px solid #374151;
-  border-radius: 4px;
-  color: white;
-  font-family: inherit;
-}
-
-.form-group textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-/**
- * Pré-visualização de imagens
- */
-.image-preview {
-  margin-top: 1rem;
-}
-
-.image-preview img {
-  max-width: 100%;
-  max-height: 200px;
-  border-radius: 4px;
-  border: 1px solid #374151;
-}
-
-/**
- * Notificações (sucesso/erro)
- */
-.notification {
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 4px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.notification.success {
-  background-color: rgba(22, 163, 74, 0.2);
-  border: 1px solid #16a34a;
-  color: #16a34a;
-}
-
-.notification.error {
-  background-color: rgba(239, 68, 68, 0.2);
-  border: 1px solid #ef4444;
-  color: #ef4444;
-}
-
-.notification-close {
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  float: right;
-  font-size: 1.25rem;
-  font-weight: bold;
-  line-height: 1;
-  padding: 0;
-}
-
-/**
- * Lista de banners
- */
-.banners-list {
-  margin-top: 3rem;
-}
-
-.banners-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.banner-item {
-  background-color: #262626;
-  padding: 1.5rem;
-  border-radius: 8px;
-}
-
-.banner-type {
-  color: #9ca3af;
-  font-size: 0.9rem;
-}
-
-.banner-actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-/**
- * Pré-visualização do carrossel
- */
-.carousel-preview {
-  display: flex;
-  gap: 0.5rem;
-  margin: 1rem 0;
-  flex-wrap: wrap;
-}
-
-.carousel-preview img {
-  width: 100px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-/* ==================== PAGINAÇÃO ==================== */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: #262626;
-  border-radius: 8px;
-}
-
-.pagination span {
-  font-weight: bold;
-}
-
-/* ==================== RESPONSIVIDADE ==================== */
-
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    gap: 1rem;
-    height: auto;
-    padding: 1rem 0;
-  }
-
-  .main-nav ul {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .carousel-image {
-    height: 300px;
-  }
-
-  .section {
-    padding: 2rem 0;
-  }
-
-  .discover-title,
-  .buy-title,
-  .crud-title {
-    font-size: 2rem;
-  }
-
-  .admin-tabs {
-    flex-direction: column;
-  }
-
-  .banners-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .carousel-caption {
-    padding: 1rem;
-  }
-
-  .carousel-buy-button {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
+  border-top: 1px solid #374151; /* Adiciona uma borda para separação */
 }
 
 /* ==================== LOGIN PAGE ==================== */
 
-.login-container {
+.login-page {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-color: #1a1a1a;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
-.login-card {
+.login-container {
+  background-color: #262626;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   width: 100%;
-  max-width: 400px;
-}
-
-.login-card h2 {
+  max-width: 450px;
   text-align: center;
-  margin-bottom: 1.5rem;
-  color: #16a34a;
 }
 
-.login-card form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.login-container h2 {
+  color: #16a34a;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.form-input {
+  width: calc(100% - 20px); /* Ajusta a largura considerando padding */
+  padding: 12px 10px;
+  margin-bottom: 1rem;
+  background-color: #1a1a1a;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem;
+}
+
+.form-input::placeholder {
+  color: #6b7280;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left; /* Alinha labels à esquerda */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #d1d5db;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  text-align: left;
 }
 
 .login-button {
   width: 100%;
-  margin-top: 1rem;
-}
-
-/* ==================== FORM ACTIONS ==================== */
-
-.form-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-/* ==================== IMAGES LIST ==================== */
-
-.images-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.image-item {
-  background-color: #1a1a1a;
   padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid #374151;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
 }
 
-/* ==================== CARD COMPONENT ==================== */
-
-.card {
-  background-color: #262626;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* ==================== DASHBOARD STYLES ==================== */
-
-.dashboard h2 {
-  margin-bottom: 2rem;
-  color: #16a34a;
-}
-
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.dashboard-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.dashboard-card h3 {
-  color: #d1d5db;
-  margin-bottom: 0.5rem;
-}
-
-.dashboard-card p {
-  color: #9ca3af;
-  flex-grow: 1;
-}
-
-/* ==================== REPORTS PAGE ==================== */
-
-.reports-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.report-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.report-card h3 {
-  color: #d1d5db;
-  margin-bottom: 0.5rem;
-}
-
-.report-card p {
-  color: #9ca3af;
-  flex-grow: 1;
-}
-
-.report-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-.report-footer span {
-  color: #6b7280;
-  font-size: 0.875rem;
-}
-
-/* ==================== ADMIN LAYOUT ==================== */
+/* ==================== PAINEL DE ADMINISTRAÇÃO ==================== */
 
 .admin-layout {
   display: flex;
   min-height: 100vh;
+  background-color: #1a1a1a;
 }
 
 .admin-sidebar {
-  width: 250px;
+  width: 280px; /* Um pouco mais largo */
   background-color: #262626;
-  padding: 1.5rem;
+  padding: 2rem;
   border-right: 1px solid #374151;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0; /* Não permite que a sidebar encolha */
 }
 
 .admin-sidebar h3 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   color: #16a34a;
+  font-size: 1.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .admin-sidebar nav ul {
@@ -756,75 +479,307 @@ body {
 }
 
 .admin-sidebar nav li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .admin-sidebar nav button {
   width: 100%;
   text-align: left;
-  padding: 0.75rem;
+  padding: 1rem 1.2rem;
   background: none;
   border: none;
   color: #d1d5db;
   cursor: pointer;
-  transition: background-color 0.2s;
-  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 500;
 }
 
 .admin-sidebar nav button:hover {
   background-color: #374151;
+  color: #16a34a; /* Cor de destaque no hover */
 }
 
 .admin-main {
-  flex: 1;
-  padding: 2rem;
+  flex: 1; /* Ocupa todo o espaço restante */
+  padding: 2.5rem;
   background-color: #1a1a1a;
+  overflow-y: auto; /* Permite scroll se o conteúdo for muito longo */
 }
 
 .admin-content {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
+  background-color: #262626;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .admin-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+  color: #16a34a;
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Seções dentro do admin */
+.form-section, .data-list-section {
+    background-color: #1a1a1a;
+    padding: 2.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #374151;
+}
+
+.form-section h2, .data-list-section h2 {
+    color: #d1d5db;
+    font-size: 1.8rem;
+    margin-bottom: 1.8rem;
+    text-align: center;
+    border-bottom: 1px solid #374151;
+    padding-bottom: 1rem;
+}
+
+.admin-form .image-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.admin-form .add-button {
+    margin-top: 1rem;
+    width: auto;
+}
+
+.banner-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.banner-card {
+    background-color: #2d3748;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid #4a5568;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner-card h3 {
+    color: #16a34a;
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.banner-card p {
+    color: #d1d5db;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.banner-images-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #374151;
+}
+
+.banner-images-preview img {
+    border: 1px solid #6b7280;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.banner-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto; /* Empurra botões para baixo */
+    padding-top: 1.5rem;
+    border-top: 1px solid #4a5568;
+    justify-content: flex-end;
+}
+
+.reports-list .report-item {
+    background-color: #2d3748;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    border: 1px solid #4a5568;
+}
+
+.reports-list .report-item h3 {
+    color: #16a34a;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.reports-list .report-item p {
+    color: #d1d5db;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.reports-list .report-item pre {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto; /* Permite scroll horizontal para JSON grande */
+    font-size: 0.85rem;
+    color: #9ca3af;
+    border: 1px dashed #374151;
+}
+
+/* ==================== MENSAGENS DE STATUS ==================== */
+
+.loading-message, .error-message, .no-data-message {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    font-weight: bold;
+    color: #d1d5db;
+    background-color: #2d3748;
+    border: 1px solid #4a5568;
+}
+
+.error-message {
+    background-color: #4a1e1e;
+    color: #ef4444;
+    border-color: #ef4444;
 }
 
 /* ==================== UTILITY CLASSES ==================== */
-
-.hidden {
-  display: none !important;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.mt-1 { margin-top: 0.25rem; }
-.mt-2 { margin-top: 0.5rem; }
+.text-center { text-align: center; }
 .mt-3 { margin-top: 1rem; }
-.mt-4 { margin-top: 1.5rem; }
 .mt-5 { margin-top: 2rem; }
 
-.mb-1 { margin-bottom: 0.25rem; }
-.mb-2 { margin-bottom: 0.5rem; }
-.mb-3 { margin-bottom: 1rem; }
-.mb-4 { margin-bottom: 1.5rem; }
-.mb-5 { margin-bottom: 2rem; }
+/* ==================== RESPONSIVIDADE ==================== */
 
-/* ==================== ANIMAÇÕES ==================== */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  .latest-updates {
+    padding: 2rem;
+  }
+
+  .latest-updates h2 {
+    font-size: 1.8rem;
+  }
+
+  .update-card {
+    padding: 1.5rem;
+  }
+
+  .carousel {
+    height: 300px;
+  }
+
+  .carousel-caption h3 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
+
+  .login-container {
+    padding: 2rem;
+  }
+
+  .login-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #374151;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+  }
+
+  .admin-sidebar h3 {
+    margin-bottom: 1rem;
+  }
+
+  .admin-sidebar nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .admin-sidebar nav li {
+    margin-bottom: 0;
+  }
+
+  .admin-sidebar nav button {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .admin-main {
+    padding: 1.5rem;
+  }
+
+  .admin-content {
+    padding: 1.5rem;
+  }
+
+  .admin-header {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-section, .data-list-section {
+    padding: 1.5rem;
+  }
+
+  .form-section h2, .data-list-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .banner-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .button-primary, .button-secondary, .button-danger {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .bottom-nav-section ul {
+    flex-direction: column; /* Empilha os botões em telas pequenas */
+    gap: 0.8rem;
+  }
+
+  .bottom-nav-section .nav-button,
+  .connect-button {
+    width: 90%; /* Ocupa quase toda a largura para melhor toque */
+    max-width: 300px;
+  }
 }
 
-.fade-in {
-  animation: fadeIn 0.3s ease-in;
-}
 
 /* ==================== SCROLLBAR ==================== */
 
