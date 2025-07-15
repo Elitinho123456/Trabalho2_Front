@@ -1,128 +1,245 @@
-/* App.css */
+/* contanier.css */
+/**
+ * Estilos globais para a aplicação Minecraft
+ * Inclui estilos para:
+ * - Layout geral
+ * - Componentes reutilizáveis
+ * - Página principal
+ * - Painel de administração
+ */
 
-/* --- Estilos Globais e do App --- */
+/* ==================== ESTILOS GLOBAIS ==================== */
+
+/**
+ * Reset básico e estilos globais
+ */
 body {
-  background-color: #1a1a1a; /* Um fundo escuro para a página inteira */
-  color: white;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a; /* Fundo escuro */
+  color: white; /* Texto branco */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
 }
 
+/**
+ * Container principal
+ * Garante que o footer fique no fundo da página
+ */
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-main {
-  flex-grow: 1; /* Garante que o conteúdo principal ocupe o espaço disponível */
-}
+/* ==================== HEADER ==================== */
 
-/* --- Estilos do Header --- */
+/**
+ * Estilos do cabeçalho
+ */
 .header {
-  background-color: #262626; /* Cor de fundo do header */
+  background-color: #262626;
   padding: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 50;
-  height: 80px; /* Altura fixa para alinhar itens */
 }
 
+/**
+ * Container do cabeçalho
+ * Alinha logo, navegação e ações
+ */
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
 }
 
+/**
+ * Estilo do logo
+ */
 .logo {
-  font-family: 'Minecraft', sans-serif; /* Assumindo que você tem essa fonte importada */
+  font-family: 'Minecraft', sans-serif;
   font-size: 2.25rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.6);
 }
 
+/**
+ * Navegação principal
+ */
 .main-nav ul {
   display: flex;
   gap: 2rem;
-  font-size: 1.1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .main-nav a {
-  display: flex;
-  align-items: center;
-  transition: color 0.2s;
   color: white;
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .main-nav a:hover {
-  color: #d1d5db; /* cinza claro no hover */
+  color: #d1d5db; /* Cor mais clara no hover */
 }
 
+/**
+ * Ações do cabeçalho (botões, ícones)
+ */
 .header-actions {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.header-actions .icon-link svg {
-  width: 1.75rem;
-  height: 1.75rem;
-  transition: color 0.2s;
-}
+/* ==================== BOTÕES ==================== */
 
-.header-actions .icon-link:hover {
-  color: #d1d5db;
-}
-
-
-/* --- Estilos do Botão --- */
+/**
+ * Estilo base para botões
+ */
 .button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   font-weight: bold;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s, border-color 0.2s;
+  transition: all 0.2s;
   text-transform: uppercase;
   border: 2px solid transparent;
+}
+
+/**
+ * Botão primário (verde)
+ */
+.button.primary {
+  background-color: #16a34a;
+  border-color: #16a34a;
   color: white;
 }
 
-.button.primary {
-  background-color: #16a34a; /* verde */
-  border-color: #16a34a;
-}
-
 .button.primary:hover {
-  background-color: #15803d; /* verde mais escuro */
+  background-color: #15803d;
+  border-color: #15803d;
 }
 
+/**
+ * Botão secundário (cinza)
+ */
 .button.secondary {
-  background-color: #4a5568; /* cinza */
+  background-color: #4a5568;
   border-color: #4a5568;
+  color: white;
 }
 
 .button.secondary:hover {
-  background-color: #2d3748; /* cinza mais escuro */
+  background-color: #2d3748;
+  border-color: #2d3748;
 }
 
+/**
+ * Botão "Compre Agora" no header
+ */
 .buy-now-button {
   border-color: #16a34a;
   background-color: transparent;
 }
+
 .buy-now-button:hover {
   background-color: #16a34a;
 }
 
+/* ==================== LOADING SPINNER ==================== */
 
-/* --- Estilos do Carrossel --- */
+.button.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==================== CONTEÚDO PRINCIPAL ==================== */
+
+/**
+ * Container do conteúdo principal
+ */
+.container-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  flex-grow: 1; /* Ocupa espaço disponível */
+}
+
+/**
+ * Estilos para seções
+ */
+.section {
+  padding: 4rem 0;
+  border-bottom: 1px solid #374151;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+/**
+ * Conteúdo centralizado nas seções
+ */
+.section-content {
+  text-align: center;
+}
+
+/**
+ * Títulos das seções
+ */
+.discover-title,
+.buy-title,
+.crud-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+/**
+ * Descrições das seções
+ */
+.discover-description,
+.buy-description,
+.crud-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  color: #d1d5db; /* Texto cinza claro */
+}
+
+/* ==================== CARROSSEL ==================== */
+
+/**
+ * Container do carrossel
+ */
 .image-carousel {
   position: relative;
   max-width: 900px;
@@ -132,14 +249,19 @@ main {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+/**
+ * Imagem do carrossel
+ */
 .carousel-image {
   width: 100%;
-  height: 500px; /* Altura fixa */
-  object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+  height: 500px;
+  object-fit: cover;
   display: block;
-  transition: opacity 0.5s ease-in-out;
 }
 
+/**
+ * Navegação do carrossel (setas)
+ */
 .carousel-nav {
   position: absolute;
   top: 50%;
@@ -148,9 +270,11 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;
-  box-sizing: border-box;
 }
 
+/**
+ * Botões de navegação do carrossel
+ */
 .nav-arrow {
   background-color: rgba(0, 0, 0, 0.5);
   border: none;
@@ -159,6 +283,9 @@ main {
   padding: 0.5rem;
   border-radius: 50%;
   transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-arrow:hover {
@@ -168,9 +295,11 @@ main {
 .nav-arrow svg {
   width: 2rem;
   height: 2rem;
-  display: block;
 }
 
+/**
+ * Legenda do carrossel
+ */
 .carousel-caption {
   position: absolute;
   bottom: 0;
@@ -178,47 +307,23 @@ main {
   right: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   color: white;
-  padding: 2rem 1.5rem 1.5rem;
+  padding: 1.5rem;
   text-align: center;
-  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-caption p {
+  margin-bottom: 1rem;
   text-shadow: 1px 1px 2px black;
 }
 
-/* --- Estilos do Container e Seções --- */
-.container-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
+/* ==================== SEÇÃO DE COMPRA ==================== */
 
-.section {
-  padding: 4rem 0;
-  border-bottom: 1px solid #374151; /* Linha divisória */
-}
-
-.section:last-child {
-  border-bottom: none;
-}
-
-.section-content {
-  text-align: center;
-}
-
-.discover-title, .buy-title, .crud-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-}
-
-.discover-description, .buy-description, .crud-description {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
-  color: #d1d5db;
-}
-
+/**
+ * Container da seção de compra
+ */
 .games-content-wrapper {
   display: flex;
   flex-direction: column;
@@ -230,42 +335,513 @@ main {
   border-radius: 8px;
 }
 
+/**
+ * Imagem da seção de compra
+ */
 .buy-games-image {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
+/**
+ * Área de texto da seção de compra
+ */
 .buy-text-area {
   text-align: center;
 }
 
-.crud-card {
-  background-color: #2d3748;
-  padding: 2rem;
-  border-radius: 8px;
-  max-width: 600px;
-  margin: 2rem auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
+/* ==================== FOOTER ==================== */
 
-.crud-card-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-/* --- Estilos do Footer --- */
+/**
+ * Estilos do rodapé
+ */
 .footer {
   background-color: #262626;
   color: #9ca3af;
   padding: 2rem;
-  margin-top: auto; /* Empurra para o final da página */
   text-align: center;
   font-size: 0.9rem;
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: auto; /* Empurra para o final */
+  position: relative;
 }
 
 .footer p {
   margin: 0.25rem 0;
+}
+
+.footer-admin-link {
+  margin-top: 1.5rem;
+}
+
+.admin-access-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+}
+
+/* ==================== PAINEL DE ADMINISTRAÇÃO ==================== */
+
+/**
+ * Abas de navegação do admin
+ */
+.admin-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+/**
+ * Cartão de formulário (CRUD)
+ */
+.crud-card {
+  background-color: #2d3748;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.crud-card-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #16a34a;
+}
+
+/**
+ * Grupos de formulário
+ */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #d1d5db;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #1a1a1a;
+  border: 1px solid #374151;
+  border-radius: 4px;
+  color: white;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/**
+ * Pré-visualização de imagens
+ */
+.image-preview {
+  margin-top: 1rem;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 4px;
+  border: 1px solid #374151;
+}
+
+/**
+ * Notificações (sucesso/erro)
+ */
+.notification {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.notification.success {
+  background-color: rgba(22, 163, 74, 0.2);
+  border: 1px solid #16a34a;
+  color: #16a34a;
+}
+
+.notification.error {
+  background-color: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  float: right;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0;
+}
+
+/**
+ * Lista de banners
+ */
+.banners-list {
+  margin-top: 3rem;
+}
+
+.banners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.banner-item {
+  background-color: #262626;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.banner-type {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.banner-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/**
+ * Pré-visualização do carrossel
+ */
+.carousel-preview {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.carousel-preview img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* ==================== PAGINAÇÃO ==================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #262626;
+  border-radius: 8px;
+}
+
+.pagination span {
+  font-weight: bold;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+    padding: 1rem 0;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .carousel-image {
+    height: 300px;
+  }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  .discover-title,
+  .buy-title,
+  .crud-title {
+    font-size: 2rem;
+  }
+
+  .admin-tabs {
+    flex-direction: column;
+  }
+
+  .banners-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-caption {
+    padding: 1rem;
+  }
+
+  .carousel-buy-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ==================== LOGIN PAGE ==================== */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #16a34a;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* ==================== FORM ACTIONS ==================== */
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* ==================== IMAGES LIST ==================== */
+
+.images-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.image-item {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #374151;
+}
+
+/* ==================== CARD COMPONENT ==================== */
+
+.card {
+  background-color: #262626;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== DASHBOARD STYLES ==================== */
+
+.dashboard h2 {
+  margin-bottom: 2rem;
+  color: #16a34a;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.dashboard-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dashboard-card h3 {
+  color: #d1d5db;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-card p {
+  color: #9ca3af;
+  flex-grow: 1;
+}
+
+/* ==================== REPORTS PAGE ==================== */
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.report-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.report-card h3 {
+  color: #d1d5db;
+  margin-bottom: 0.5rem;
+}
+
+.report-card p {
+  color: #9ca3af;
+  flex-grow: 1;
+}
+
+.report-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.report-footer span {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* ==================== ADMIN LAYOUT ==================== */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  width: 250px;
+  background-color: #262626;
+  padding: 1.5rem;
+  border-right: 1px solid #374151;
+}
+
+.admin-sidebar h3 {
+  margin-bottom: 1.5rem;
+  color: #16a34a;
+}
+
+.admin-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-sidebar nav li {
+  margin-bottom: 0.5rem;
+}
+
+.admin-sidebar nav button {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem;
+  background: none;
+  border: none;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+}
+
+.admin-sidebar nav button:hover {
+  background-color: #374151;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #1a1a1a;
+}
+
+.admin-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 2rem; }
+
+/* ==================== ANIMAÇÕES ==================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* ==================== SCROLLBAR ==================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3748;
 }
