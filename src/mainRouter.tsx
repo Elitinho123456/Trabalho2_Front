@@ -17,9 +17,8 @@ import ViewReports from './Pages/Minecraft_Java/Admin/Management/ViewReports.tsx
 
 // IMPORTS ESPECÍFICOS PARA MINECRAFT LEGENDS ADMIN
 import LegendsAdminDashboard from './Pages/Minecraft_Legends/admin/AdminDashBoard.tsx';
-import LegendsItemList from './Pages/Minecraft_Legends/Components/LegendsItemList.tsx';
 import LegendsItemForm from './Pages/Minecraft_Legends/Components/LegendsItemForm.tsx';
-import LegendsReportPage from './Pages/Minecraft_Legends/Components/LegendsReportPage.tsx';
+
 
 import { createBrowserRouter } from 'react-router-dom';
 
@@ -68,8 +67,6 @@ export const router = createBrowserRouter([
     element: <LegendsAdminDashboard />, // Este componente (AdminDashBoard.tsx) precisa renderizar um <Outlet />
     children: [
       {
-      index: true, // Rota padrão para /admin/legends (listagem)
-      element: <LegendsItemList />,
       },
       {
       path: 'novo', // Rota para adicionar nova entidade: /admin/legends/novo
@@ -80,8 +77,6 @@ export const router = createBrowserRouter([
       element: <LegendsItemForm />,
       },
       {
-      path: 'relatorio', // Rota para o relatório de entidades: /admin/legends/relatorio
-      element: <LegendsReportPage />,
       }
     ]
     },
