@@ -1,0 +1,415 @@
+/* container.css */
+/**
+ * Estilos globais e para componentes da aplicação Minecraft.
+ * Versão revisada para corresponder à estrutura de componentes do contanier.tsx.
+ */
+
+/* ==================== ESTILOS GLOBAIS & RESET ==================== */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Garante que o conteúdo principal empurre o rodapé para baixo */
+.container-main {
+  flex-grow: 1;
+}
+
+/* ==================== BOTÕES GERAIS ==================== */
+/* Base para todos os botões */
+.button {
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.button:disabled {
+  background-color: #4a5568;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Variações de cor */
+.button.primary {
+  background-color: #16a34a; /* Verde Minecraft */
+  color: white;
+}
+.button.primary:hover:not(:disabled) {
+  background-color: #15803d;
+}
+
+.button.secondary {
+  background-color: #4a5568; /* Cinza escuro */
+  color: white;
+}
+.button.secondary:hover:not(:disabled) {
+  background-color: #2d3748;
+}
+
+.button.danger {
+  background-color: #ef4444; /* Vermelho */
+  color: white;
+}
+.button.danger:hover:not(:disabled) {
+  background-color: #dc2626;
+}
+
+/* Animação de carregamento */
+.button.loading .spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==================== HOMEPAGE ==================== */
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#discover {
+  background-color: #262626;
+}
+
+.discover-title {
+  font-size: 2.5rem;
+  color: #16a34a;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.discover-description {
+  font-size: 1.2rem;
+  color: #d1d5db;
+  margin-bottom: 2rem;
+}
+
+#buy-games {
+  background-color: #1a1a1a;
+}
+
+.games-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #222;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.buy-games-image {
+  width: 50%;
+  object-fit: cover;
+}
+
+.buy-text-area {
+  flex: 1;
+  padding: 2rem;
+  text-align: left;
+}
+
+.buy-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ==================== CARROSSEL ==================== */
+.image-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  background-color: #222;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  right: 1rem;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-arrow {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.nav-arrow svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+  stroke-width: 2;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.carousel-caption p {
+  margin: 0;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-empty {
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
+/* ==================== FOOTER ==================== */
+.footer {
+  background-color: #262626;
+  color: #9ca3af;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: auto; /* Empurra para o final */
+  border-top: 1px solid #374151;
+}
+
+.footer-admin-link {
+  margin-top: 1rem;
+}
+
+/* ==================== NOTIFICAÇÃO ==================== */
+.notification {
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.notification.success { background-color: #16a34a; color: white; }
+.notification.error { background-color: #ef4444; color: white; }
+.notification.info { background-color: #3b82f6; color: white; }
+.notification-close { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; opacity: 0.8; }
+.notification-close:hover { opacity: 1; }
+
+/* ==================== PAINEL DE ADMINISTRAÇÃO ==================== */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  width: 260px;
+  background-color: #262626;
+  padding: 2rem;
+  border-right: 1px solid #374151;
+  flex-shrink: 0;
+}
+.admin-sidebar h3 {
+  color: #16a34a;
+  text-align: center;
+  text-transform: uppercase;
+}
+.admin-sidebar nav ul { list-style: none; padding: 0; margin: 2rem 0 0 0; }
+.admin-sidebar nav li { margin-bottom: 0.5rem; }
+.admin-sidebar nav button {
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  background: none;
+  border: none;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.admin-sidebar nav button:hover {
+  background-color: #374151;
+  color: #16a34a;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 2.5rem;
+  overflow-y: auto;
+}
+
+.admin-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #374151;
+  padding-bottom: 1.5rem;
+}
+.admin-header h2 {
+  color: #e5e7eb;
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Dashboard */
+.dashboard h2 { text-align: center; margin-bottom: 2rem; }
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.card { background-color: #262626; border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+.dashboard-card h3 { margin-top: 0; color: #16a34a; }
+.dashboard-card p { color: #9ca3af; }
+.dashboard-card .button { margin-top: 1rem; }
+
+/* Banner Manager & Forms */
+.admin-tabs { margin-bottom: 2rem; display: flex; gap: 1rem; }
+.form-container { background-color: #262626; padding: 2rem; border-radius: 8px; }
+.crud-form h3 { margin-top: 0; margin-bottom: 1.5rem; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: #d1d5db; }
+.form-input, .form-group textarea, .form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #1a1a1a;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.error-message { color: #ef4444; font-size: 0.9rem; margin-top: 0.5rem; }
+.form-actions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem; }
+
+/* Image Previews */
+.image-preview { margin-top: 1rem; max-width: 300px; }
+.image-preview img { width: 100%; border-radius: 6px; border: 1px solid #4a5568; }
+.images-list { display: flex; flex-direction: column; gap: 2rem; }
+.image-item { background: #1a1a1a; padding: 1.5rem; border-radius: 8px; border: 1px solid #374151; }
+.image-item .button { align-self: flex-end; }
+
+/* Banners List */
+.banners-list { margin-top: 3rem; }
+.banners-list h3 { border-bottom: 1px solid #374151; padding-bottom: 1rem; margin-bottom: 2rem; }
+.banners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.banner-item { display: flex; flex-direction: column; }
+.banner-item h4 { margin-top: 0; color: #16a34a; }
+.banner-type { font-size: 0.8rem; color: #9ca3af; background: #374151; padding: 0.2rem 0.5rem; border-radius: 4px; display: inline-block; margin-bottom: 1rem; }
+.carousel-preview { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.carousel-preview img { width: 60px; height: 40px; object-fit: cover; border-radius: 4px; }
+.carousel-preview span { font-size: 0.9rem; color: #9ca3af; align-self: center; }
+.banner-actions { margin-top: auto; padding-top: 1rem; border-top: 1px solid #374151; display: flex; justify-content: flex-end; gap: 0.5rem; }
+
+/* Paginação */
+.pagination { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 2rem; color: #9ca3af; }
+
+/* Reports Page */
+.reports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.report-card h3 { margin-top: 0; color: #16a34a; }
+.report-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; font-size: 0.85rem; color: #9ca3af; }
+
+/* ==================== RESPONSIVIDADE ==================== */
+@media (max-width: 768px) {
+  .section { padding: 2rem 1rem; }
+  .games-content-wrapper { flex-direction: column; }
+  .buy-games-image { width: 100%; max-height: 250px; }
+  .buy-text-area { text-align: center; }
+  .image-carousel { height: 300px; }
+  
+  .admin-layout { flex-direction: column; }
+  .admin-sidebar { width: 100%; border-right: none; border-bottom: 1px solid #374151; }
+  .admin-main { padding: 1.5rem; }
+  .admin-header { flex-direction: column; gap: 1rem; }
+  .form-actions { flex-direction: column; gap: 0.5rem; }
+  .form-actions .button { width: 100%; }
+}
+
+/* ==================== SCROLLBAR ==================== */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb { background: #4a5568; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2d3748; }

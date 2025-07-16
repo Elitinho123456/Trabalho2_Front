@@ -1,7 +1,14 @@
+// src/Pages/Minecraft_Dungeons/pages/ReportPage.tsx
 import { useState, useEffect } from "react";
-import api from '../service/api'
+import api from '../service/api';
 import type { ReportItem } from "../types";
 
+// Importe os novos estilos e mantenha os antigos para a tabela
+import '../styles/ReportPage.css'; 
+import '../styles/ItemList.css';
+
+// Defina um valor máximo de poder para calcular a porcentagem da barra
+const MAX_POWER = 150; 
 
 export default function ReportPage() {
     const [reportData, setReportData] = useState<ReportItem[]>([]);
@@ -24,13 +31,26 @@ export default function ReportPage() {
             });
     }, []);
 
+    // Função auxiliar para retornar a classe CSS correta para a raridade
+    const getRarityClass = (rarity: string) => {
+        switch (rarity.toLowerCase()) {
+            case 'comum': return 'rarity-comum';
+            case 'raro': return 'rarity-raro';
+            case 'único': return 'rarity-unico';
+            default: return '';
+        }
+    };
+
     if (loading) return <p>Gerando relatório...</p>;
-    if (error) return <p>{error}</p>;
+    if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
     return (
-        <div>
+        <div className="report-container">
+            {/* Cabeçalho Aprimorado */}
             <h1>Relatório de Itens por Categoria</h1>
-            <table>
+            <p className="subtitle">Visão geral de todos os itens cadastrados no sistema.</p>
+            
+            <table className="dungeons-table">
                 <thead>
                     <tr>
                         <th>Nome do Item</th>
@@ -43,8 +63,23 @@ export default function ReportPage() {
                     {reportData.map(item => (
                         <tr key={item.id}>
                             <td>{item.nome}</td>
-                            <td>{item.poder}</td>
-                            <td>{item.raridade}</td>
+                            <td>
+                                {/* Barra de Poder Visual */}
+                                <div className="power-bar-container">
+                                    <div 
+                                        className="power-bar-fill"
+                                        style={{ width: `${(item.poder / MAX_POWER) * 100}%` }}
+                                    >
+                                        {item.poder}
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                {/* Badge de Raridade Colorido */}
+                                <span className={`rarity-badge ${getRarityClass(item.raridade)}`}>
+                                    {item.raridade}
+                                </span>
+                            </td>
                             <td>{item.nome_categoria}</td>
                         </tr>
                     ))}
@@ -52,6 +87,4 @@ export default function ReportPage() {
             </table>
         </div>
     );
-
-
 }

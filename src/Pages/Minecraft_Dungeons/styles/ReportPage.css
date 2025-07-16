@@ -1,0 +1,68 @@
+/* src/Pages/Minecraft_Dungeons/styles/ReportPage.css */
+
+.report-container h1 {
+    border-left: 4px solid #a365e0; /* Uma borda roxa para destacar o título */
+    padding-left: 1rem;
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+}
+
+.report-container p.subtitle {
+    color: #b0b0d0;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding-left: calc(1rem + 4px); /* Alinha com o título */
+}
+
+/* Estilo base para as etiquetas de raridade */
+.rarity-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 15px; /* Deixa a etiqueta com formato de "pílula" */
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    min-width: 70px; /* Garante que todas tenham uma largura mínima */
+    text-align: center;
+}
+
+/* Cores específicas para cada raridade */
+.rarity-comum {
+    background-color: #6c757d; /* Cinza */
+}
+
+.rarity-raro {
+    background: linear-gradient(45deg, #4e73df, #224abe); /* Gradiente Azul */
+}
+
+.rarity-unico {
+    background: linear-gradient(45deg, #8e44ad, #c0392b); /* Gradiente Roxo/Laranja */
+    box-shadow: 0 0 8px rgba(231, 76, 60, 0.6); /* Efeito de brilho */
+}
+
+/* Container para a barra de poder */
+.power-bar-container {
+    width: 100%;
+    max-width: 150px;
+    height: 20px;
+    background-color: #2a2a3e;
+    border-radius: 5px;
+    border: 1px solid #4a4a6a;
+    overflow: hidden; /* Garante que a barra interna não ultrapasse as bordas */
+}
+
+/* A barra de preenchimento de poder */
+.power-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    border-radius: 4px;
+    transition: width 0.5s ease-in-out; /* Animação suave */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+}

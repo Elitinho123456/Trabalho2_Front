@@ -1,20 +1,34 @@
-@import url('./theme.css');
+/* src/styles/dungeons.css */
 
+/* Este é o container principal que envolve toda a sua área administrativa. */
 .dungeons-container {
-  max-width: 1200px;
-  margin: 0 auto 4rem auto; /* 0 no topo, 4rem embaixo para dar espaço para o footer */
-  padding: 2rem;
-  background-color: var(--dungeons-bg-primary);
-  border: 2px solid var(--dungeons-border-color);
-  color: var(--dungeons-text-body);
-  border-radius: 10px;
+    /* A MUDANÇA MAIS IMPORTANTE: */
+    width: 90%; /* Faz o container ocupar 90% da largura disponível, em vez de ser espremido. */
+    max-width: 1200px; /* Define uma largura máxima para que não fique excessivamente largo em telas gigantes. */
+    
+    /* O margin: auto agora vai centralizar este bloco de 90% de largura. */
+    margin: 5% auto !important; /* Adiciona um bom espaço no topo/base e centraliza horizontalmente. */
+    padding: 2.5rem;
+    background-color: #252532; /* O fundo escuro do painel que já tínhamos. */
+    border-radius: 12px;
+    border: 1px solid #3a3a5a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box; /* Garante que o padding não afete a largura total. */
 }
 
-.dungeons-container header h1 {
-  font-family: var(--dungeons-font, sans-serif); /* Usa a fonte temática */
-  color: var(--dungeons-text-title);
+/* O resto do estilo permanece o mesmo, pois está correto. */
+
+.dungeons-container > header > h1 {
   text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 2.5rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  color: #e5e5e5;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.dungeons-container > hr {
+  border: none;
+  height: 1px;
+  background-color: #3a3a5a;
+  margin: 2rem 0;
 }

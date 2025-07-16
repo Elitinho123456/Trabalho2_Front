@@ -75,7 +75,16 @@ export default function ItemList() {
             </div>
 
             <table className="dungeons-table">
-                {/* ... seu código da tabela, que está perfeito ... */}
+                {/* ADICIONE ESTE BLOCO DE CÓDIGO */}
+                <thead>
+                    <tr>
+                        <th>Nome do Item</th>
+                        <th>Poder</th>
+                        <th>Raridade</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                {/* O SEU CÓDIGO DO <tbody> JÁ ESTÁ CORRETO */}
                 <tbody>
                     {itens.map((item) => (
                         <tr key={item.id}>
@@ -83,8 +92,7 @@ export default function ItemList() {
                             <td>{item.poder}</td>
                             <td>{item.raridade}</td>
                             <td>
-                                <Link to={`/admin/dungeons/editar/${item.id}`} className="btn-edit-link">Editar</Link>
-                                {' | '}
+                                <Link to={`/admin/dungeons/editar/${item.id}`} className="btn btn-edit-link">Editar</Link>
                                 <button onClick={() => handleDelete(item.id)} className="btn btn-delete">Excluir</button>
                             </td>
                         </tr>

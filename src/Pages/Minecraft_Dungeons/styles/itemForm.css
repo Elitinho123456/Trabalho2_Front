@@ -1,57 +1,99 @@
-/* minecraft_dungeons/style/ItemForm.css */
+/* src/styles/itemForm.css */
 
-.item-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* Espaço entre os campos do formulário */
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #f7f1e6;
-  border-radius: 8px;
+/* Container principal que envolve todo o conteúdo do formulário */
+.dungeons-form-container {
+    max-width: 700px; /* Limita a largura para melhor legibilidade em telas maiores */
+    margin: 2rem auto; /* Centraliza o container na página com margem no topo e embaixo */
+    padding: 2.5rem; /* Espaçamento interno generoso */
+    background-color: #2a2a3e; /* Um fundo escuro com um tom azulado/roxo */
+    border-radius: 10px; /* Cantos arredondados para um visual mais suave */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidade e destacar o formulário */
+    border: 1px solid #4a4a6a; /* Borda sutil para definir os limites */
 }
 
-.item-form .form-group {
-  display: flex;
-  flex-direction: column;
+/* Estilo do título (H2) do formulário */
+.dungeons-form-container h2 {
+    text-align: center;
+    color: #e0e0e0; /* Cor de texto clara, mas não branco puro */
+    margin-bottom: 2rem; /* Aumenta o espaço abaixo do título */
+    font-size: 1.8rem;
+    letter-spacing: 1px; /* Pequeno espaçamento entre as letras */
 }
 
-.item-form label {
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #4a3422;
+/* A tag <form> em si */
+.dungeons-form {
+    display: flex;
+    flex-direction: column; /* Organiza os campos um abaixo do outro */
+    gap: 1.5rem; /* Cria um espaçamento vertical consistente entre cada grupo de campo */
 }
 
-.item-form input,
-.item-form select {
-  padding: 10px;
-  border: 1px solid #c8b79b;
-  border-radius: 4px;
-  font-size: 1rem;
+/* Container para cada par de 'label' e 'input' */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem; /* Espaçamento entre o label e o campo de input */
 }
 
-.item-form .submit-button {
-  background-color: #5a8e3a;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  margin-top: 1rem;
+/* Estilo das etiquetas (labels) */
+.form-group label {
+    font-weight: bold;
+    color: #b0b0d0; /* Cor suave para as etiquetas */
+    font-size: 1rem;
 }
 
-.item-form .submit-button:hover {
-  background-color: #4a782a;
+/* Estilo padrão para todos os campos de texto, número e seleção */
+.dungeons-form input[type="text"],
+.dungeons-form input[type="number"],
+.dungeons-form select {
+    width: 100%; /* Ocupa toda a largura do container pai */
+    padding: 14px 16px; /* Espaçamento interno para o texto não ficar colado nas bordas */
+    background-color: #1e1e2f; /* Fundo do campo ainda mais escuro que o container */
+    border: 1px solid #4a4a6a; /* Borda com a mesma cor da borda do container */
+    border-radius: 6px; /* Cantos levemente arredondados */
+    color: #e0e0e0; /* Cor do texto digitado */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Animação suave para o foco */
 }
 
+/* Estilo de quando um campo está em foco (selecionado) */
+.dungeons-form input[type="text"]:focus,
+.dungeons-form input[type="number"]:focus,
+.dungeons-form select:focus {
+    outline: none; /* Remove a borda padrão do navegador */
+    border-color: #7b00b3; /* Cor de destaque (um roxo vibrante) para a borda */
+    box-shadow: 0 0 10px rgba(123, 0, 179, 0.7); /* Adiciona um brilho sutil ao redor do campo */
+}
+
+/* Estilo da mensagem de erro */
 .form-error {
-  color: #c0392b;
-  background-color: #fdd;
-  padding: 10px;
-  border-radius: 4px;
-  text-align: center;
-  margin-bottom: 1rem;
+    background-color: rgba(220, 53, 69, 0.1); /* Fundo vermelho translúcido */
+    color: #f8d7da; /* Texto em tom de vermelho claro */
+    border: 1px solid #dc3545; /* Borda vermelha sólida */
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* O botão 'Salvar' já usa .btn e .btn-add, vamos aprimorá-lo aqui */
+.dungeons-form .btn-add {
+    margin-top: 1rem; /* Espaço extra antes do botão */
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #fff;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%); /* Um gradiente bonito */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+.dungeons-form .btn-add:hover {
+    transform: translateY(-2px); /* Eleva o botão levemente */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Aumenta a sombra para um efeito 3D */
 }

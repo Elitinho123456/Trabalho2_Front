@@ -79,6 +79,7 @@
 .edu-admin-link .edu-btn {
     background-color: rgba(0,0,0,0.2);
     border: 1px solid white;
+    margin: 3rem auto !important;
 }
 
 
@@ -125,7 +126,7 @@
 .admin-edu-page {
     padding: 2rem;
     max-width: 1200px;
-    margin: 2rem auto;
+    margin: 5rem auto !important;
     background-color: var(--edu-bg-secondary);
     border-radius: 1rem;
     border: 1px solid var(--edu-border-color);
@@ -138,7 +139,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.5rem !important;
     border-bottom: 1px solid var(--edu-border-color);
 }
 

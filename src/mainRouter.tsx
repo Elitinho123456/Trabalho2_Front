@@ -7,7 +7,8 @@ import MinecraftLegendsPage from './Pages/Minecraft_Legends/Legends.tsx';
 import Home from './Pages/Home/home.tsx';
 import JavaEditionPage from './Pages/Minecraft_Java/java.tsx';
 import Dungeons from './Pages/Minecraft_Dungeons/dungeons.tsx'; // Se Dungeons for o layout admin, renomeie para DungeonsAdminLayout para clareza
-import Bedrock from './Pages/minecraft_bedrock/contanier.tsx';
+
+
 import DungeonsPage from './Pages/Minecraft_Dungeons/pages/DungeonsPage.tsx';
 
 import AdminDashboard from './Pages/Minecraft_Java/Admin/AdminDashboard.tsx';
@@ -28,8 +29,7 @@ export const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: '/Bedrock',
-    element: <Bedrock />
+   
   },
 
   //Java Edition
@@ -74,7 +74,7 @@ export const router = createBrowserRouter([
       },
       {
       path: 'editar/:id', // Rota para editar entidade existente: /admin/legends/editar/:id
-      element: <LegendsItemForm />,
+      element: <ReportPage />,
       },
       {
       }

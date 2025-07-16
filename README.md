@@ -183,3 +183,151 @@ O AdminDashboard.tsx atua como o hub central, de onde o administrador pode naveg
 Em ManageUsers.tsx ou ManageProducts.tsx, o administrador pode visualizar, criar, editar e deletar registros. Todas as ações disparam chamadas de API via axios para um servidor backend (não incluído nos arquivos, mas esperado em http://localhost:8888).
 
 Em ViewReports.tsx, o administrador pode visualizar um relatório de quais produtos foram baixados por quais usuários.
+
+#Compreendido! Você quer que eu forneça o texto para a seção "Dungeons" do seu README.md, mas sem a parte de "Como Rodar o Projeto", pois ela já existe na parte superior do arquivo.
+
+Perfeito. Aqui está o conteúdo pronto para ser copiado e colado logo após a seção do projeto Java no seu README.md.
+
+<br>
+
+# Dungeons
+
+Este projeto consiste em uma landing page visualmente rica para o jogo Minecraft Dungeons, integrada a um painel de administração robusto para gerenciar os itens e categorias do jogo. O frontend é construído com React e TypeScript, utilizando React Router para a navegação e Axios para a comunicação com a API. O estilo é feito com CSS puro, com foco em um design temático, moderno e responsivo.
+
+Estrutura de Arquivos
+
+O projeto está organizado da seguinte forma:
+
+Generated code
+/src/
+|-- Pages/Minecraft_Dungeons/
+|   |-- components/
+|   |   |-- Navbar.tsx         # Barra de navegação da área administrativa
+|   |
+|   |-- pages/
+|   |   |-- DungeonsPage.tsx     # A landing page pública do jogo
+|   |   |-- ItemList.tsx         # Página para listar e filtrar os itens
+|   |   |-- ItemForm.tsx         # Formulário para criar/editar itens
+|   |   |-- ReportPage.tsx       # Página para o relatório de itens
+|   |
+|   |-- service/
+|   |   |-- api.ts               # Configuração da instância do Axios
+|   |
+|   |-- styles/
+|   |   |-- dungeons.css         # Estilos globais da área de admin
+|   |   |-- DungeonsPage.css     # Estilos da landing page pública
+|   |   |-- ItemList.css         # Estilos da tabela e filtros
+|   |   |-- itemForm.css         # Estilos do formulário
+|   |   |-- NavBar.css           # Estilos da navegação do admin
+|   |
+|   |-- dungeons.tsx             # Layout/Template principal da área admin
+|
+|-- App.tsx                      # Configuração principal das rotas
+|-- main.tsx                     # Ponto de entrada da aplicação React
+
+Análise dos Componentes e Estilos
+Página Pública (DungeonsPage.tsx)
+
+Este é o ponto de entrada visual para os visitantes. Serve como uma vitrine atraente e imersiva para Minecraft Dungeons.
+
+Funcionalidades:
+
+Seção Hero: Uma grande área de destaque com o logo do jogo, um slogan e botões de chamada para ação (CTA), além de um link discreto para a Área Administrativa.
+
+Sobre o Jogo: Apresentação do conceito do jogo com texto e imagem.
+
+Destaques: Seção com "cards" que descrevem as principais características (multiplayer, personalização, etc.).
+
+DLCs: Grade visual que exibe as expansões disponíveis para o jogo.
+
+Animações de Scroll: Elementos da página surgem suavemente na tela à medida que o usuário rola, criando uma experiência dinâmica.
+
+Estrutura do Código:
+
+Usa o hook useEffect para adicionar e remover um event listener de scroll, gerenciando as animações.
+
+Componentes internos reutilizáveis (FeatureCard, DlcCard) para manter o código organizado.
+
+Utiliza o componente <Link> do react-router-dom para navegação interna para a área de admin.
+
+Estilo (DungeonsPage.css):
+
+Uso intensivo de flexbox e grid para layouts responsivos e alinhados.
+
+Fundo da seção hero com imagem e sobreposição para garantir a legibilidade do texto.
+
+Efeitos de transição suaves em botões e cards ao passar o mouse.
+
+Animação baseada em classes (.reveal, .active) para o efeito de "revelar ao rolar".
+
+Layout da Área Administrativa (dungeons.tsx)
+
+Funciona como o "molde" ou "template" para todas as páginas do painel de administração, garantindo consistência visual.
+
+Funcionalidades:
+
+Define uma estrutura comum com um título (<h1>), a barra de navegação (<Navbar>) e um separador (<hr>).
+
+Estrutura do Código:
+
+A peça central é o componente <Outlet /> do React Router. Ele atua como um espaço reservado onde os componentes das rotas filhas (como ItemList, ItemForm, etc.) são renderizados.
+
+Estilo (dungeons.css):
+
+Define um container principal (.dungeons-container) com largura máxima, margem automática para centralização e um tema escuro.
+
+Cria a aparência de "painel" que se destaca no centro da página.
+
+Gerenciamento de Itens (ItemList.tsx e ItemForm.tsx)
+
+Dupla de componentes que gerencia o CRUD (Criar, Ler, Atualizar, Excluir) de itens.
+
+Funcionalidades (ItemList.tsx):
+
+Listagem de Itens: Exibe todos os itens em uma tabela com colunas para nome, poder e raridade.
+
+Filtragem Dinâmica: Permite filtrar os itens por raridade através de um menu suspenso. Uma nova busca na API é feita a cada mudança no filtro.
+
+Ações de CRUD: Botões "Editar" e "Excluir" em cada linha da tabela e um botão "Adicionar Novo Item".
+
+Funcionalidades (ItemForm.tsx):
+
+Formulário único e reutilizável que serve tanto para a criação quanto para a edição de itens.
+
+Busca e preenche automaticamente os campos com os dados do item quando em modo de edição.
+
+Estrutura do Código:
+
+ItemList usa useEffect com dependência na variável de filtro para re-buscar dados dinamicamente.
+
+ItemForm usa useParams para detectar o modo (criar/editar) e useNavigate para redirecionar após o envio.
+
+Ambos se comunicam com a API via Axios e gerenciam estados de carregamento e erro com useState.
+
+Estilo (ItemList.css, itemForm.css):
+
+Estilo limpo para tabelas e formulários, com feedback visual para hover e :focus, e botões de ação com cores distintas para melhor usabilidade.
+
+Visualização de Relatórios (ReportPage.tsx)
+
+Componente focado em exibir uma lista de todos os itens com seus nomes de categoria correspondentes, obtidos através de um JOIN no backend.
+
+Funcionalidades: Exibe uma tabela com Nome, Poder, Raridade e Categoria.
+
+Estrutura do Código: Faz uma única requisição GET para a API na montagem do componente e exibe um feedback de "Gerando relatório...".
+
+Fluxo de Interação
+
+O visitante chega na DungeonsPage.tsx, onde pode explorar informações sobre o jogo.
+
+Um administrador clica no link "Área Administrativa" para navegar até /admin/dungeons.
+
+A rota carrega o layout dungeons.tsx, que por sua vez renderiza a ItemList.tsx em seu <Outlet />.
+
+Na lista de itens, o administrador pode filtrar os resultados, clicar em "Excluir" para remover um item, ou clicar em "Adicionar Novo Item" para ser levado ao ItemForm.tsx em modo de criação.
+
+Ao clicar em "Editar" em um item, ele é levado ao mesmo ItemForm.tsx, mas desta vez em modo de edição, com os dados do item já preenchidos.
+
+Após salvar o formulário, ele é redirecionado de volta para a lista de itens.
+
+Usando a Navbar, o administrador pode navegar para a página de Relatório para visualizar dados consolidados sobre os itens do jogo.
