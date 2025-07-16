@@ -1,537 +1,195 @@
-/* Variáveis CSS para o tema do CRUD (podem ser personalizadas) */
-:root {
-    --crud-primary-bg: #1e1e2d; /* Cor de fundo principal */
-    --crud-secondary-bg: #2a2a3a; /* Cor de fundo secundária */
-    --crud-card-bg: #28283d; /* Cor de fundo para cartões/seções */
-    --crud-text-white: #ffffff; /* Cor do texto principal */
-    --crud-text-gray: #b0b0c0; /* Cor do texto secundário/cinza */
-    --crud-border-color: #44445a; /* Cor da borda */
-    --crud-accent-blue: #66b3ff; /* Cor de destaque azul */
-    --crud-accent-green: #4CAF50; /* Cor de destaque verde (para botões de sucesso) */
-    --crud-accent-red: #f44336; /* Cor de destaque vermelho (para botões de exclusão) */
-    --crud-hover-bg: #3a3a4c; /* Cor de fundo ao passar o mouse */
-
-    /* Variáveis do seu outro CSS, se quiser que elas coexistam */
-    --primary-bg: #1a1f2e;
-    --secondary-bg: #2a3441;
-    --accent-blue: #4a9eff;
-    --accent-orange: #ff6b35;
-    --text-white: #ffffff;
-    --text-gray: #b8c5d1;
-    --card-bg: #252b3a;
-    --border-color: #3a4553;
-    --hover-bg: #3a4553;
-}
-
-/* Base Styles (do seu outro CSS, ajustado para coexistir) */
-body {
+/* Estilos Gerais para o Painel Admin */
+.admin-container, .report-container {
+  background-color: #1a1f2e;
+  color: #ffffff;
+  padding: 40px;
+  min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--primary-bg); /* Ou var(--crud-primary-bg); */
-  color: var(--text-white); /* Ou var(--crud-text-white); */
-  line-height: 1.6;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Home Page specific styles */
-.home-page-container {
-    background-color: var(--primary-bg);
-    color: var(--text-white);
-    min-height: 100vh;
-}
-
-.header {
-    background-color: var(--primary-bg);
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo img {
-    height: 40px;
-}
-
-.hero {
-    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
-    padding: 80px 0 120px;
-    text-align: center;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero-logo img {
-    max-width: 600px;
-    width: 100%;
-    height: auto;
-    margin-bottom: 32px;
-    border-radius: 12px;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 900;
-    margin-bottom: 24px;
-    letter-spacing: 2px;
-}
-
-.hero-description {
-    font-size: 1.25rem;
-    color: var(--text-gray);
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
-
-.btn-orange {
-    background-color: var(--accent-orange);
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none; /* Adicionado para links */
-}
-
-.btn-orange:hover {
-    background-color: #e55a2b;
-}
-
-.btn-blue {
-    background-color: transparent;
-    color: var(--accent-blue);
-    border: 2px solid var(--accent-blue);
-    padding: 14px 30px;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none; /* Adicionado para links */
-}
-
-.btn-blue:hover {
-    background-color: var(--accent-blue);
-    color: white;
-}
-
-
-/* Admin Dashboard Styles */
-.admin-dashboard {
-    background-color: var(--crud-primary-bg); /* Aplica a cor de fundo principal */
-    color: var(--crud-text-white); /* Define a cor do texto padrão */
-    min-height: 100vh; /* Garante que o dashboard ocupe a altura mínima da viewport */
-    padding: 30px; /* Espaçamento interno */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte padrão */
 }
 
 .admin-header {
-    display: flex; /* Usa flexbox para alinhar itens */
-    justify-content: space-between; /* Espaça os itens (título e botão) */
-    align-items: center; /* Centraliza verticalmente os itens */
-    margin-bottom: 30px; /* Margem inferior */
-    padding-bottom: 20px; /* Espaçamento inferior interno */
-    border-bottom: 1px solid var(--crud-border-color); /* Borda inferior */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #3a4553;
+  padding-bottom: 20px;
 }
 
 .admin-header h1 {
-    font-size: 2.2rem; /* Tamanho da fonte do título */
-    color: var(--crud-accent-blue); /* Cor do título */
+  color: #4a9eff;
+  font-size: 2rem;
 }
 
-.btn-back {
-    background-color: var(--crud-border-color); /* Cor de fundo do botão */
-    color: var(--crud-text-white); /* Cor do texto do botão */
-    padding: 10px 20px; /* Espaçamento interno */
-    border-radius: 5px; /* Bordas arredondadas */
-    text-decoration: none; /* Remove sublinhado do link */
-    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+.admin-actions button, .report-actions button {
+  margin-left: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-.btn-back:hover {
-    background-color: var(--crud-hover-bg); /* Cor de fundo ao passar o mouse */
+.btn-add { background-color: #7cb342; color: white; }
+.btn-add:hover { background-color: #689f38; }
+
+.btn-report { background-color: #4a9eff; color: white; }
+.btn-report:hover { background-color: #357fcf; }
+
+/* Tabela do Admin */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #2a3441;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.admin-content {
-    display: flex; /* Usa flexbox para o formulário e a lista */
-    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
-    gap: 30px; /* Espaçamento entre o formulário e a lista */
+.admin-table th, .admin-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #3a4553;
 }
 
-.skin-form-section {
-    flex: 1; /* Ocupa espaço flexível, tenta crescer */
-    min-width: 300px; /* Largura mínima para o formulário antes de quebrar linha */
-    background-color: var(--crud-card-bg); /* Cor de fundo da seção do formulário */
-    padding: 30px; /* Espaçamento interno */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
-    border: 1px solid var(--crud-border-color); /* Borda */
+.admin-table th {
+  background-color: #252b3a;
+  color: #b8c5d1;
+  text-transform: uppercase;
+  font-size: 0.9rem;
 }
 
-.skin-form-section h2 {
-    font-size: 1.8rem; /* Tamanho da fonte do título da seção do formulário */
-    color: var(--crud-accent-green); /* Cor do título */
-    margin-bottom: 25px; /* Margem inferior */
-    text-align: center; /* Centraliza o texto */
+.entity-image-thumbnail {
+  width: 80px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
-.skin-form .form-group {
-    margin-bottom: 20px; /* Espaçamento entre os grupos de formulário */
+.actions-cell {
+  text-align: right;
 }
 
-.skin-form label {
-    display: block; /* Faz o rótulo ocupar toda a largura disponível */
-    margin-bottom: 8px; /* Margem inferior do rótulo */
-    color: var(--crud-text-gray); /* Cor do texto do rótulo */
-    font-weight: 600; /* Negrito */
+.actions-cell button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 8px;
+  font-weight: 500;
 }
 
-.skin-form input[type="text"],
-.skin-form input[type="number"],
-.skin-form select {
-    width: 100%; /* Ocupa 100% da largura do pai */
-    padding: 12px; /* Espaçamento interno */
-    border: 1px solid var(--crud-border-color); /* Borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    background-color: var(--crud-primary-bg); /* Cor de fundo do input */
-    color: var(--crud-text-white); /* Cor do texto digitado */
-    font-size: 1rem; /* Tamanho da fonte */
-    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
+.btn-edit { background-color: #ffc107; color: black; }
+.btn-edit:hover { background-color: #d39e00; }
+.btn-delete { background-color: #dc3545; color: white; }
+.btn-delete:hover { background-color: #b02a37; }
+
+/* Modal do Formulário */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.skin-form input[type="text"]:focus,
-.skin-form input[type="number"]:focus,
-.skin-form select:focus {
-    outline: none; /* Remove o contorno padrão de foco */
-    border-color: var(--crud-accent-blue); /* Altera a cor da borda ao focar */
-    box-shadow: 0 0 0 3px rgba(102, 179, 255, 0.2); /* Adiciona uma sombra suave ao focar */
+.modal-content {
+  background-color: #2a3441;
+  padding: 30px;
+  border-radius: 8px;
+  width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.skin-form .form-actions {
-    display: flex; /* Usa flexbox para os botões de ação */
-    gap: 15px; /* Espaçamento entre os botões */
-    margin-top: 30px; /* Margem superior */
-    justify-content: flex-end; /* Alinha os botões à direita */
+.modal-content h2 {
+  color: #4a9eff;
+  margin-bottom: 20px;
 }
 
-.btn-primary {
-    background-color: var(--crud-accent-green); /* Cor de fundo do botão primário */
-    color: white; /* Cor do texto */
-    border: none; /* Sem borda */
-    padding: 12px 25px; /* Espaçamento interno */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Cursor de ponteiro */
-    font-size: 1rem; /* Tamanho da fonte */
-    font-weight: 600; /* Negrito */
-    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
-    text-decoration: none; /* Para links que usam esta classe */
-    display: inline-block; /* Para links que usam esta classe */
+.form-group {
+  margin-bottom: 15px;
 }
 
-.btn-primary:hover {
-    background-color: #45a049; /* Cor de fundo ao passar o mouse */
+.form-group label {
+  display: block;
+  color: #b8c5d1;
+  margin-bottom: 5px;
 }
 
-.btn-secondary {
-    background-color: var(--crud-border-color); /* Cor de fundo do botão secundário */
-    color: var(--crud-text-white); /* Cor do texto */
-    border: none; /* Sem borda */
-    padding: 12px 25px; /* Espaçamento interno */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Cursor de ponteiro */
-    font-size: 1rem; /* Tamanho da fonte */
-    font-weight: 600; /* Negrito */
-    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
-    text-decoration: none; /* Para links que usam esta classe */
-    display: inline-block; /* Para links que usam esta classe */
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #1a1f2e;
+  border: 1px solid #3a4553;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 1rem;
 }
 
-.btn-secondary:hover {
-    background-color: var(--crud-hover-bg); /* Cor de fundo ao passar o mouse */
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
 }
 
-.skin-list-section {
-    flex: 2; /* Ocupa mais espaço que o formulário (o dobro, se houver espaço) */
-    min-width: 400px; /* Largura mínima para a lista */
-    background-color: var(--crud-card-bg); /* Cor de fundo da seção da lista */
-    padding: 30px; /* Espaçamento interno */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-    border: 1px solid var(--crud-border-color); /* Borda */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
 }
 
-.skin-list-section h2 {
-    font-size: 1.8rem; /* Tamanho da fonte do título da lista */
-    color: var(--crud-accent-blue); /* Cor do título */
-    margin-bottom: 25px; /* Margem inferior */
-    text-align: center; /* Centraliza o texto */
+.form-actions button {
+  padding: 10px 25px;
 }
 
-.skin-table {
-    width: 100%; /* Ocupa 100% da largura do pai */
-    border-collapse: collapse; /* Colapsa as bordas das células */
-    margin-top: 20px; /* Margem superior */
-}
+.btn-save { background-color: #28a745; color: white; }
+.btn-save:hover { background-color: #218838; }
+.btn-cancel { background-color: #6c757d; color: white; }
+.btn-cancel:hover { background-color: #5a6268; }
 
-.skin-table th, .skin-table td {
-    padding: 12px 15px; /* Espaçamento interno das células */
-    text-align: left; /* Alinhamento do texto à esquerda */
-    border-bottom: 1px solid var(--crud-border-color); /* Borda inferior das células */
+/* Estilos da Página de Relatório */
+.report-header, .report-footer {
+  text-align: center;
+  margin-bottom: 20px;
 }
-
-.skin-table th {
-    background-color: var(--crud-hover-bg); /* Cor de fundo do cabeçalho da tabela */
-    color: var(--crud-text-white); /* Cor do texto do cabeçalho */
-    font-weight: 700; /* Negrito */
-    text-transform: uppercase; /* Transforma o texto em maiúsculas */
-    font-size: 0.9rem; /* Tamanho da fonte */
+.report-table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
 }
-
-.skin-table tr:hover {
-    background-color: var(--crud-hover-bg); /* Cor de fundo da linha ao passar o mouse */
+.report-table th, .report-table td {
+  border: 1px solid #3a4553;
+  padding: 12px;
 }
-
-.skin-thumbnail {
-    width: 50px; /* Largura da miniatura da imagem */
-    height: 50px; /* Altura da miniatura da imagem */
-    object-fit: cover; /* Recorta a imagem para preencher o espaço mantendo a proporção */
-    border-radius: 4px; /* Bordas arredondadas */
-    border: 1px solid var(--crud-border-color); /* Borda da imagem */
+.report-table th { background-color: #252b3a; }
+.report-actions {
+  text-align: center;
+  margin-top: 30px;
 }
+.btn-print { background-color: #007bff; color: white; }
+.btn-back { background-color: #6c757d; color: white; }
 
-.table-actions button, .table-actions a { /* Adicionado 'a' para links */
-    margin-right: 10px; /* Margem à direita entre os botões de ação na tabela */
-    padding: 8px 15px; /* Espaçamento interno */
-    border: none; /* Sem borda */
-    border-radius: 4px; /* Bordas arredondadas */
-    cursor: pointer; /* Cursor de ponteiro */
-    font-weight: 500; /* Peso da fonte */
-    transition: background-color 0.3s ease; /* Transição suave */
-    text-decoration: none; /* Remove sublinhado de links */
-    display: inline-block; /* Garante que links se comportem como botões */
-    text-align: center; /* Centraliza texto em links-botões */
-}
-
-.btn-edit {
-    background-color: var(--crud-accent-blue); /* Cor de fundo do botão "Editar" */
-    color: white; /* Cor do texto */
-}
-
-.btn-edit:hover {
-    background-color: #5599e6; /* Cor de fundo ao passar o mouse */
-}
-
-.btn-delete {
-    background-color: var(--crud-accent-red); /* Cor de fundo do botão "Excluir" */
-    color: white; /* Cor do texto */
-}
-
-.btn-delete:hover {
-    background-color: #d32f2f; /* Cor de fundo ao passar o mouse */
-}
-
-/* Report Page specific styles */
-.report-summary, .report-rarity {
-    background-color: var(--crud-card-bg);
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid var(--crud-border-color);
-    margin-bottom: 20px;
-}
-
-.report-summary h3, .report-rarity h3 {
-    color: var(--crud-accent-green);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-.report-summary p {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-    color: var(--crud-text-white);
-}
-
-.report-rarity ul {
-    list-style: none; /* Remove marcadores de lista */
+/* Estilos para impressão */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  .report-container {
     padding: 0;
-}
-
-.report-rarity li {
-    background-color: var(--crud-primary-bg);
-    padding: 10px 15px;
-    margin-bottom: 8px;
-    border-radius: 5px;
-    border: 1px solid var(--crud-border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--crud-text-gray);
-}
-.report-rarity li strong {
-    color: var(--crud-text-white);
-}
-
-
-/* Responsividade */
-@media (max-width: 1024px) { /* Para telas com largura máxima de 1024px */
-    .admin-content {
-        flex-direction: column; /* Coloca o formulário e a lista em coluna */
-        align-items: center; /* Centraliza os itens */
-    }
-    .skin-form-section,
-    .skin-list-section {
-        width: 100%; /* Ocupa 100% da largura */
-        min-width: unset; /* Remove a largura mínima definida anteriormente */
-    }
-}
-
-@media (max-width: 768px) { /* Para telas com largura máxima de 768px */
-    .admin-dashboard {
-        padding: 20px; /* Reduz o espaçamento interno do dashboard */
-    }
-    .admin-header {
-        flex-direction: column; /* Coloca o título e o botão do cabeçalho em coluna */
-        text-align: center; /* Centraliza o texto */
-        gap: 15px; /* Espaçamento entre os itens */
-    }
-    .admin-header h1 {
-        font-size: 1.8rem; /* Reduz o tamanho da fonte do título */
-    }
-    .skin-form .form-actions {
-        flex-direction: column; /* Coloca os botões de ação do formulário em coluna */
-        gap: 10px; /* Espaçamento entre eles */
-        align-items: stretch; /* Estica os botões para preencher a largura */
-    }
-    .table-actions {
-        display: flex; /* Usa flexbox para os botões de ação da tabela */
-        flex-direction: column; /* Coloca os botões em coluna */
-        gap: 5px; /* Espaçamento entre eles */
-    }
-    .table-actions button, .table-actions a { /* Adicionado 'a' para links */
-        margin-right: 0; /* Remove a margem direita */
-        width: 100%; /* Estica os botões para 100% da largura */
-    }
-    .skin-table thead {
-        display: none; /* Esconde o cabeçalho da tabela em telas pequenas */
-    }
-    .skin-table, .skin-table tbody, .skin-table tr, .skin-table td {
-        display: block; /* Faz com que a tabela, corpo, linha e células se comportem como blocos */
-        width: 100%; /* Ocupam 100% da largura */
-    }
-    .skin-table tr {
-        margin-bottom: 15px; /* Margem inferior entre as linhas */
-        border: 1px solid var(--crud-border-color); /* Borda para cada linha */
-        border-radius: 8px; /* Bordas arredondadas */
-        padding: 10px; /* Espaçamento interno */
-    }
-    .skin-table td {
-        text-align: right; /* Alinha o conteúdo da célula à direita */
-        padding-left: 50%; /* Espaço para o rótulo "virtual" */
-        position: relative; /* Posição relativa para o pseudo-elemento ::before */
-    }
-    .skin-table td::before {
-        content: attr(data-label); /* Usa o atributo data-label como conteúdo */
-        position: absolute; /* Posição absoluta para o rótulo */
-        left: 0; /* Alinha à esquerda */
-        width: 50%; /* Ocupa 50% da largura */
-        padding-left: 15px; /* Espaçamento à esquerda */
-        font-weight: bold; /* Negrito */
-        text-align: left; /* Alinha o rótulo à esquerda */
-        color: var(--crud-text-gray); /* Cor do rótulo */
-    }
-    /* Define o conteúdo do data-label para cada coluna específica */
-    .skin-table td:nth-child(1)::before { content: "ID:"; }
-    .skin-table td:nth-child(2)::before { content: "Imagem:"; }
-    .skin-table td:nth-child(3)::before { content: "Nome:"; }
-    .skin-table td:nth-child(4)::before { content: "Raridade:"; }
-    .skin-table td:nth-child(5)::before { content: "Preço:"; }
-    .skin-table td:nth-child(6)::before { content: "Ações:"; }
-}
-
-/* Responsive Design for general sections (from your other CSS) */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    .hero-description {
-        font-size: 1.1rem;
-    }
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    .btn-orange,
-    .btn-blue {
-        width: 100%;
-        max-width: 300px;
-        margin: 8px 0;
-    }
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .about-text {
-        order: 2;
-    }
-    .about-image {
-        order: 1;
-    }
-    .features h2,
-    .expand-game h2,
-    .gallery h2 {
-        font-size: 2rem;
-    }
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-    .dlc-grid {
-        grid-template-columns: 1fr;
-    }
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 16px;
-    }
-    .hero {
-        padding: 60px 0 80px;
-    }
-    .hero-title {
-        font-size: 2rem;
-    }
-    .about,
-    .features,
-    .expand-game,
-    .gallery {
-        padding: 60px 0;
-    }
-    .feature-card,
-    .dlc-card {
-        padding: 24px;
-    }
+    box-shadow: none;
+  }
+  .report-actions, .admin-container {
+    display: none;
+  }
+  .report-table, .report-table th, .report-table td {
+    border: 1px solid #ccc;
+    color: #000;
+  }
+  .report-table th {
+    background-color: #f2f2f2;
+  }
 }

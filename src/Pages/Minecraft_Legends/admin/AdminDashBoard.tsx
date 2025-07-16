@@ -1,112 +1,112 @@
-// src/components/AdminDashboard.tsx
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Importa Link e useNavigate
-import '../Legends.css'; // Importa o arquivo CSS (considere criar um CSS específico para admin)
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './adminLegends.css'; // Estilos para o painel
 
-interface Skin {
-  id: string;
-  name: string;
+// Definindo o tipo da nossa entidade para ter um código mais seguro
+export interface DlcEntity {
+  id: number;
+  title: string;
   imageUrl: string;
-  rarity: string;
-  price: number;
+  description: string;
 }
 
-// Componente funcional AdminDashboard (nome corrigido)
-const AdminDashboard: React.FC = () => {
-  const [skins, setSkins] = useState<Skin[]>([]);
-  const navigate = useNavigate(); // Hook para navegação programática
+// Dados iniciais para simular um banco de dados
+const initialEntities: DlcEntity[] = [
+  { id: 1, title: 'Construindo Sua Base', imageUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1928870/ss_65720eb73a2dd8fc993172cfbfcdc8fe40ec44c2.1920x1080.jpg?t=1746133966', description: 'Aprenda a construir e fortificar sua base contra hordas inimigas.' },
+  { id: 2, title: 'Invadindo Castelo', imageUrl: 'https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/06/Minecraft-Legends-gameplay.jpg', description: 'Lidere seus aliados em uma invasão épica a um castelo dos Piglins.' },
+  { id: 3, title: 'Montarias Únicas', imageUrl: 'https://cdnb.artstation.com/p/assets/images/images/072/761/757/large/lisha-leston-legends-render-hero-champion.jpg?1708125789', description: 'Descubra e dome novas montarias com habilidades especiais.' },
+];
 
-  // Efeito que carrega as skins do localStorage na montagem inicial do componente
-  useEffect(() => {
-    const storedSkins = localStorage.getItem('minecraftSkins');
-    if (storedSkins) {
-      setSkins(JSON.parse(storedSkins));
-    } else {
-      setSkins([
-        { id: '1', name: 'Knight Armor', imageUrl: 'https://via.placeholder.com/150/0000FF/FFFFFF?text=Knight', rarity: 'Rare', price: 150 },
-        { id: '2', name: 'Dragon Slayer', imageUrl: 'https://via.placeholder.com/150/FF0000/FFFFFF?text=Dragon', rarity: 'Epic', price: 300 },
-        { id: '3', name: 'Forest Spirit', imageUrl: 'https://via.placeholder.com/150/00FF00/FFFFFF?text=Forest', rarity: 'Common', price: 50 },
-      ]);
-    }
-  }, []); // Array de dependências vazio significa que este efeito roda apenas uma vez
+const AdminLegends: React.FC = () => {
+  const [entities, setEntities] = useState<DlcEntity[]>(initialEntities);
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [editingEntity, setEditingEntity] = useState<DlcEntity | undefined>(undefined);
+  const navigate = useNavigate();
 
-  // Função para lidar com a exclusão de uma skin
-  const handleDelete = (id: string) => {
-    if (window.confirm('Tem certeza que deseja excluir esta skin?')) {
-      const updatedSkins = skins.filter(skin => skin.id !== id);
-      setSkins(updatedSkins);
-      // Salva a lista atualizada imediatamente após a exclusão
-      localStorage.setItem('minecraftSkins', JSON.stringify(updatedSkins));
+  // Função para deletar uma entidade
+  const handleDelete = (id: number) => {
+    if (window.confirm('Tem certeza de que deseja excluir esta entidade?')) {
+      setEntities(entities.filter((entity) => entity.id !== id));
     }
   };
 
-  // Função auxiliar para buscar dados (poderiam ser chamadas API)
-  const fetchSkins = () => {
-    const storedSkins = localStorage.getItem('minecraftSkins');
-    if (storedSkins) {
-      setSkins(JSON.parse(storedSkins));
-    } else {
-      setSkins([]); // Garante que a lista esteja vazia se não houver nada
-    }
+  // Função para abrir o formulário para edição
+  const handleEdit = (entity: DlcEntity) => {
+    setEditingEntity(entity);
+    setIsFormVisible(true);
   };
 
-  // Recarrega as skins sempre que a página é acessada (útil para ver edições/adições)
-  useEffect(() => {
-    fetchSkins();
-  }, [navigate]); // Dependência do navigate para recarregar quando a rota é alcançada
+  // Função para abrir o formulário para criação
+  const handleAdd = () => {
+    setEditingEntity(undefined);
+    setIsFormVisible(true);
+  };
+
+  // Função para salvar (criar ou atualizar) uma entidade
+  const handleSave = (entityToSave: Omit<DlcEntity, 'id'> & { id?: number }) => {
+    if (entityToSave.id) {
+      // Atualizar
+      setEntities(entities.map((e) => (e.id === entityToSave.id ? { ...e, ...entityToSave } as DlcEntity : e)));
+    } else {
+      // Criar (simulando um novo ID)
+      const newEntity: DlcEntity = {
+        ...entityToSave,
+        id: Date.now(), // Usando timestamp como ID único para o exemplo
+      };
+      setEntities([...entities, newEntity]);
+    }
+    setIsFormVisible(false);
+  };
+
+  // Função para navegar para a página de relatório
+  const handleViewReport = () => {
+    // Passando os dados atuais para a página de relatório através do estado da rota
+    navigate('/admin/legends/report', { state: { entities: entities } });
+  };
 
   return (
-    <div className="admin-dashboard">
+    <div className="admin-container">
       <div className="admin-header">
-        <h1>Admin Dashboard - Gerenciar Skins</h1>
-        <div style={{ display: 'flex', gap: '15px' }}>
-            <Link to="/" className="btn-back">Voltar à Página Principal</Link>
-            <Link to="/admin/skins/add" className="btn-primary">Adicionar Nova Skin</Link> {/* Botão para adicionar */}
-            <Link to="/admin/skins/report" className="btn-secondary">Relatório de Skins</Link> {/* Botão para relatório */}
+        <h1>Gerenciador de Entidades de Legends</h1>
+        <div className="admin-actions">
+          <button onClick={handleAdd} className="btn-add">Adicionar Nova Entidade</button>
+          <button onClick={handleViewReport} className="btn-report">Gerar Relatório</button>
         </div>
       </div>
 
-      <div className="admin-content">
-        <div className="skin-list-section" style={{ flex: 'none', width: '100%' }}> {/* Ajusta o estilo para ocupar 100% */}
-          <h2>Skins Existentes</h2>
-          {skins.length === 0 ? (
-            <p>Nenhuma skin cadastrada ainda.</p>
-          ) : (
-            <table className="skin-table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Imagem</th>
-                  <th>Nome</th>
-                  <th>Raridade</th>
-                  <th>Preço</th>
-                  <th>Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                {skins.map(skin => (
-                  <tr key={skin.id}>
-                    <td data-label="ID">{skin.id}</td>
-                    <td data-label="Imagem">
-                      <img src={skin.imageUrl} alt={skin.name} className="skin-thumbnail" />
-                    </td>
-                    <td data-label="Nome">{skin.name}</td>
-                    <td data-label="Raridade">{skin.rarity}</td>
-                    <td data-label="Preço">${skin.price.toFixed(2)}</td>
-                    <td className="table-actions" data-label="Ações">
-                      {/* Botão de Editar que navega para a página de edição */}
-                      <Link to={`/admin/skins/edit/${skin.id}`} className="btn-edit">Editar</Link>
-                      <button onClick={() => handleDelete(skin.id)} className="btn-delete">Excluir</button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
-      </div>
+      <table className="admin-table">
+        <thead>
+          <tr>
+            <th>Imagem</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {entities.map((entity) => (
+            <tr key={entity.id}>
+              <td><img src={entity.imageUrl} alt={entity.title} className="entity-image-thumbnail" /></td>
+              <td>{entity.title}</td>
+              <td>{entity.description}</td>
+              <td className="actions-cell">
+                <button onClick={() => handleEdit(entity)} className="btn-edit">Editar</button>
+                <button onClick={() => handleDelete(entity.id)} className="btn-delete">Excluir</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {isFormVisible && (
+        <EntityForm
+          initialData={editingEntity}
+          onSave={handleSave}
+          onCancel={() => setIsFormVisible(false)}
+        />
+      )}
     </div>
   );
 };
 
-export default AdminDashboard; // Exporta o componente AdminDashboard
+export default AdminLegends;

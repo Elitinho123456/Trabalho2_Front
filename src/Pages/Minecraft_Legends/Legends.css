@@ -1,327 +1,660 @@
-/* CSS Variables */
-:root {
-  --primary-bg: #1a1f2e; /* Cor de fundo principal escura */
-  --secondary-bg: #2a3441; /* Cor de fundo secundária um pouco mais clara que a primária */
-  --accent-blue: #4a9eff; /* Cor de destaque azul para títulos e interatividade */
-  --accent-orange: #ff6b35; /* Cor de destaque laranja para botões primários */
-  --text-white: #ffffff; /* Cor do texto principal (branco) */
-  --text-gray: #b8c5d1; /* Cor do texto secundário (cinza claro) */
-  --card-bg: #252b3a; /* Cor de fundo para cartões/elementos agrupados */
-  --border-color: #3a4553; /* Cor para bordas sutis */
-  --hover-bg: #3a4553; /* Cor de fundo ao passar o mouse */
+/* CRUD Button Container */
+.crud-button-container {
+  position: fixed; /* Fixa o botão em relação à janela de visualização */
+  top: 20px; /* Distância do topo */
+  right: 20px; /* Distância da direita */
+  z-index: 1000; /* Garante que o botão fique acima de outros elementos */
 }
+/* CSS Variables */
+
+:root {
+
+  --primary-bg: #1a1f2e; /* Cor de fundo principal escura */
+
+  --secondary-bg: #2a3441; /* Cor de fundo secundária um pouco mais clara que a primária */
+
+  --accent-blue: #4a9eff; /* Cor de destaque azul para títulos e interatividade */
+
+  --accent-orange: #ff6b35; /* Cor de destaque laranja para botões primários */
+
+  --text-white: #ffffff; /* Cor do texto principal (branco) */
+
+  --text-gray: #b8c5d1; /* Cor do texto secundário (cinza claro) */
+
+  --card-bg: #252b3a; /* Cor de fundo para cartões/elementos agrupados */
+
+  --border-color: #3a4553; /* Cor para bordas sutis */
+
+  --hover-bg: #3a4553; /* Cor de fundo ao passar o mouse */
+
+}
+
+
 
 /* Reset and Base Styles */
+
 * {
+
   margin: 0; /* Remove margem padrão de todos os elementos */
+
   padding: 0; /* Remove preenchimento padrão de todos os elementos */
+
   box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura total */
+
 }
+
+
 
 body {
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a família da fonte */
+
   background-color: var(--primary-bg); /* Aplica a cor de fundo principal definida na variável */
+
   color: var(--text-white); /* Aplica a cor do texto principal definida na variável */
+
   line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+
 }
+
+
 
 .container {
+
   max-width: 1200px; /* Define a largura máxima do contêiner */
+
   margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+
   padding: 0 20px; /* Adiciona preenchimento horizontal para evitar que o conteúdo encoste nas bordas */
+
 }
+
+
 
 /* Buttons */
+
 .btn-primary {
+
   background-color: #7cb342; /* Cor de fundo verde primária */
+
   color: white; /* Cor do texto do botão */
+
   border: none; /* Remove a borda padrão */
+
   padding: 12px 24px; /* Preenchimento interno do botão */
+
   border-radius: 4px; /* Borda arredondada */
+
   font-weight: 600; /* Peso da fonte */
+
   cursor: pointer; /* Muda o cursor para indicar clicável */
+
   transition: background-color 0.3s ease; /* Transição suave para a cor de fundo ao passar o mouse */
+
 }
+
+
 
 .btn-primary:hover {
+
   background-color: #689f38; /* Cor de fundo mais escura ao passar o mouse */
+
 }
+
+
 
 .btn-secondary {
+
   background-color: transparent; /* Fundo transparente */
+
   color: var(--text-white); /* Cor do texto */
+
   border: 2px solid var(--border-color); /* Borda sólida com cor definida na variável */
+
   padding: 10px 22px; /* Preenchimento interno */
+
   border-radius: 4px; /* Borda arredondada */
+
   font-weight: 600; /* Peso da fonte */
+
   cursor: pointer; /* Cursor clicável */
+
   transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+
 }
+
+
 
 .btn-secondary:hover {
+
   background-color: var(--hover-bg); /* Fundo ao passar o mouse */
+
   border-color: var(--accent-blue); /* Borda azul de destaque ao passar o mouse */
+
 }
+
+
 
 .btn-orange {
+
   background-color: var(--accent-orange); /* Cor de fundo laranja de destaque */
+
   color: white; /* Cor do texto */
+
   border: none; /* Remove a borda */
+
   padding: 16px 32px; /* Preenchimento interno maior */
+
   border-radius: 4px; /* Borda arredondada */
+
   font-weight: 700; /* Peso da fonte mais forte */
+
   font-size: 16px; /* Tamanho da fonte */
+
   cursor: pointer; /* Cursor clicável */
+
   transition: background-color 0.3s ease; /* Transição suave */
+
   margin-right: 16px; /* Margem à direita */
+
 }
+
+
 
 .btn-orange:hover {
+
   background-color: #e55a2b; /* Cor de fundo mais escura ao passar o mouse */
+
 }
+
+
 
 .btn-blue {
+
   background-color: transparent; /* Fundo transparente */
+
   color: var(--accent-blue); /* Cor do texto azul de destaque */
+
   border: 2px solid var(--accent-blue); /* Borda azul de destaque */
+
   padding: 14px 30px; /* Preenchimento interno */
+
   border-radius: 4px; /* Borda arredondada */
+
   font-weight: 700; /* Peso da fonte */
+
   font-size: 16px; /* Tamanho da fonte */
+
   cursor: pointer; /* Cursor clicável */
+
   transition: all 0.3s ease; /* Transição suave */
+
 }
+
+
 
 .btn-blue:hover {
+
   background-color: var(--accent-blue); /* Fundo azul de destaque ao passar o mouse */
+
   color: white; /* Texto branco ao passar o mouse */
+
 }
+
+
 
 /* Header */
+
 .header {
+
   background-color: var(--primary-bg); /* Fundo do cabeçalho */
+
   padding: 16px 0; /* Preenchimento vertical */
+
   border-bottom: 1px solid var(--border-color); /* Borda inferior */
+  
 }
+
+
 
 .header .container {
+
   display: flex; /* Usa Flexbox para organizar os itens */
+
   justify-content: space-between; /* Espaça os itens (logo e navegação) */
+
   align-items: center; /* Alinha os itens verticalmente ao centro */
+  height: 42px; /* Adicionado para manter a altura do header consistente */
 }
+
+
 
 .logo img {
+
   height: 40px; /* Altura da imagem do logo */
+
 }
+
+
 
 /* Hero Section */
+
 .hero {
+
   background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%); /* Gradiente de fundo */
+
   padding: 80px 0 120px; /* Preenchimento vertical */
+
   text-align: center; /* Centraliza o texto e elementos internos */
+
 }
+
+
 
 .hero-content {
+
   max-width: 800px; /* Largura máxima do conteúdo do herói */
+
   margin: 0 auto; /* Centraliza o conteúdo do herói */
+
 }
+
+
 
 .hero-logo img {
+
   max-width: 600px; /* Largura máxima do logo/imagem no herói */
+
   width: 100%; /* Garante que a imagem seja responsiva */
+
   height: auto; /* Mantém a proporção da imagem */
+
   margin-bottom: 32px; /* Margem inferior */
+
   border-radius: 12px; /* Borda arredondada */
+
 }
+
+
 
 .hero-title {
+
   font-size: 3.5rem; /* Tamanho da fonte do título principal */
+
   font-weight: 900; /* Peso da fonte extra-bold */
+
   margin-bottom: 24px; /* Margem inferior */
+
   letter-spacing: 2px; /* Espaçamento entre letras */
+
 }
+
+
 
 .hero-description {
+
   font-size: 1.25rem; /* Tamanho da fonte da descrição */
+
   color: var(--text-gray); /* Cor do texto da descrição */
+
   margin-bottom: 40px; /* Margem inferior */
+
   max-width: 600px; /* Largura máxima da descrição */
+
   margin-left: auto; /* Centraliza a descrição */
+
   margin-right: auto; /* Centraliza a descrição */
+
 }
+
+
 
 .hero-buttons {
+
   display: flex; /* Usa Flexbox para organizar os botões */
+
   justify-content: center; /* Centraliza os botões horizontalmente */
+
   gap: 16px; /* Espaçamento entre os botões */
+
   flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha em telas pequenas */
+
 }
+
+
 
 /* About Section */
+
 .about {
+
   padding: 80px 0; /* Preenchimento vertical */
+
   background-color: var(--secondary-bg); /* Cor de fundo secundária */
+
 }
+
+
 
 .about-content {
+
   display: grid; /* Usa Grid para organizar o conteúdo */
+
   grid-template-columns: 1fr 1fr; /* Duas colunas de igual largura */
+
   gap: 60px; /* Espaçamento entre as colunas */
+
   align-items: center; /* Alinha os itens verticalmente ao centro */
+
 }
+
+
 
 .about-text h2 {
+
   font-size: 2.5rem; /* Tamanho da fonte do título "Sobre o Jogo" */
+
   color: var(--accent-blue); /* Cor azul de destaque */
+
   margin-bottom: 24px; /* Margem inferior */
+
   font-weight: 700; /* Peso da fonte bold */
+
 }
+
+
 
 .about-text p {
+
   font-size: 1.1rem; /* Tamanho da fonte do parágrafo */
+
   color: var(--text-gray); /* Cor cinza do texto */
+
   line-height: 1.8; /* Altura da linha para legibilidade */
+
 }
+
+
 
 .about-image img {
+
   width: 100%; /* Ocupa 100% da largura da coluna */
+
   height: auto; /* Mantém a proporção */
+
   border-radius: 8px; /* Borda arredondada */
+
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Sombra para a imagem */
+
 }
+
+
 
 /* Features Section */
+
 .features {
+
   padding: 80px 0; /* Preenchimento vertical */
+
   background-color: var(--primary-bg); /* Cor de fundo principal */
+
   display: block !important; /* Garante que o elemento seja exibido como bloco (sobrescreve possíveis estilos de ocultamento) */
+
   visibility: visible !important; /* Garante que o elemento seja visível (sobrescreve possíveis estilos de ocultamento) */
+
 }
+
+
 
 .features h2 {
+
   text-align: center; /* Centraliza o título */
+
   font-size: 2.5rem; /* Tamanho da fonte do título */
+
   color: var(--accent-blue); /* Cor azul de destaque */
+
   margin-bottom: 60px; /* Margem inferior */
+
   font-weight: 700; /* Peso da fonte bold */
+
   display: block !important; /* Garante visibilidade */
+
 }
+
+
 
 .features-grid {
+
   display: grid !important; /* Usa Grid para as features (sobrescreve possíveis estilos) */
+
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas responsivas */
+
   gap: 32px; /* Espaçamento entre os cartões */
+
   visibility: visible !important; /* Garante visibilidade */
+
 }
+
+
 
 .feature-card {
+
   background-color: var(--card-bg); /* Fundo do cartão */
+
   padding: 32px; /* Preenchimento interno */
+
   border-radius: 12px; /* Borda arredondada */
+
   text-align: center; /* Centraliza o conteúdo do cartão */
+
   border: 1px solid var(--border-color); /* Borda sutil */
+
   transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+
   display: block !important; /* Garante visibilidade */
+
   visibility: visible !important; /* Garante visibilidade */
+
   opacity: 1 !important; /* Garante visibilidade */
+
 }
+
+
 
 .feature-card:hover {
+
   transform: translateY(-4px); /* Move o cartão ligeiramente para cima ao passar o mouse */
+
   box-shadow: 0 12px 40px rgba(74, 158, 255, 0.15); /* Sombra com tom azul ao passar o mouse */
+
   border-color: var(--accent-blue); /* Borda azul de destaque ao passar o mouse */
+
 }
+
+
 
 .feature-icon {
+
   width: 60px; /* Largura do ícone */
+
   height: 60px; /* Altura do ícone */
+
   margin: 0 auto 24px; /* Centraliza e adiciona margem inferior */
+
   color: var(--accent-blue); /* Cor do ícone */
+
   display: block !important; /* Garante visibilidade */
+
 }
+
+
 
 .feature-icon svg {
+
   width: 100%; /* Ícone SVG ocupa 100% do seu contêiner */
+
   height: 100%; /* Ícone SVG ocupa 100% do seu contêiner */
+
 }
+
+
 
 .feature-card h3 {
+
   font-size: 1.25rem; /* Tamanho da fonte do título do cartão */
+
   margin-bottom: 16px; /* Margem inferior */
+
   font-weight: 600; /* Peso da fonte */
+
   color: var(--text-white); /* Cor do texto */
+
   display: block !important; /* Garante visibilidade */
+
 }
+
+
 
 .feature-card p {
+
   color: var(--text-gray); /* Cor do texto cinza */
+
   font-size: 0.95rem; /* Tamanho da fonte do parágrafo */
+
   display: block !important; /* Garante visibilidade */
+
 }
+
+
 
 /* Expand Game Section */
+
 .expand-game {
+
   padding: 80px 0; /* Preenchimento vertical */
+
   background-color: var(--secondary-bg); /* Cor de fundo secundária */
+
 }
+
+
 
 .expand-game h2 {
+
   text-align: center; /* Centraliza o título */
+
   font-size: 2.5rem; /* Tamanho da fonte do título */
+
   color: var(--accent-blue); /* Cor azul de destaque */
+
   margin-bottom: 60px; /* Margem inferior */
+
   font-weight: 700; /* Peso da fonte bold */
+
 }
+
+
 
 .dlc-grid {
+
   display: grid; /* Usa Grid para os DLCs */
+
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Colunas responsivas */
+
   gap: 24px; /* Espaçamento entre os cartões */
+
 }
+
+
 
 .dlc-card {
+
   background-color: var(--card-bg); /* Fundo do cartão DLC */
+
   border-radius: 12px; /* Borda arredondada */
+
   overflow: hidden; /* Garante que o conteúdo que extrapola a borda seja cortado */
+
   border: 1px solid var(--border-color); /* Borda sutil */
+
   transition: all 0.3s ease; /* Transição suave */
+
   cursor: pointer; /* Cursor clicável */
+
 }
+
+
 
 .dlc-card:hover {
+
   transform: translateY(-4px); /* Move para cima ao passar o mouse */
+
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3); /* Sombra ao passar o mouse */
+
   border-color: var(--accent-blue); /* Borda azul de destaque */
+
 }
+
+
 
 .dlc-card img {
+
   width: 100%; /* Imagem ocupa 100% da largura do cartão */
+
   height: 200px; /* Altura fixa da imagem */
+
   object-fit: cover; /* Recorta a imagem para preencher o contêiner */
+
 }
+
+
 
 .dlc-card h3 {
+
   padding: 20px; /* Preenchimento interno do título */
+
   font-size: 1.1rem; /* Tamanho da fonte */
+
   font-weight: 600; /* Peso da fonte */
+
   text-align: center; /* Centraliza o texto */
+
 }
+
+
 
 /* Gallery Section */
+
 .gallery {
+
   padding: 80px 0; /* Preenchimento vertical */
+
   background-color: var(--primary-bg); /* Cor de fundo principal */
+
 }
+
+
 
 .gallery h2 {
+
   text-align: center; /* Centraliza o título */
+
   font-size: 2.5rem; /* Tamanho da fonte do título */
+
   color: var(--accent-blue); /* Cor azul de destaque */
+
   margin-bottom: 60px; /* Margem inferior */
+
   font-weight: 700; /* Peso da fonte bold */
+
 }
 
+
+
 .gallery-grid {
+
   display: grid; /* Usa Grid para a galeria */
+
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
 }

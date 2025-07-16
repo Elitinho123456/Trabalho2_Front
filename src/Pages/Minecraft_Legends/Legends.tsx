@@ -7,6 +7,14 @@ import './Legends.css'; // Importa o arquivo CSS específico para estilizar este
 const MinecraftLegendsPage: React.FC = () => {
   return (
     <div className="minecraft-dungeons"> {/* Contêiner principal da página, usando uma classe CSS genérica */}
+
+      {/* Botão CRUD posicionado no topo da página */}
+      <div className="crud-button-container">
+        <Link to="/admin/legends" className="btn-primary">
+          Gerenciar Entidades de Legends 🛠️ {/* Texto do botão com um emoji para clareza */}
+        </Link>
+      </div>
+
       {/* Header - Seção do cabeçalho da página */}
       <header className="header">
         <div className="container"> {/* Contêiner para centralizar e limitar a largura do conteúdo */}
@@ -14,15 +22,7 @@ const MinecraftLegendsPage: React.FC = () => {
             {/* Espaço reservado para o logo, se houver um */}
             {/* Você pode colocar uma imagem <img src="..." alt="Logo" /> ou um texto aqui */}
           </div>
-          {/* Seção de navegação no cabeçalho */}
-          <nav>
-            {/* Botão para o painel de administração de Minecraft Legends */}
-            {/* O componente Link permite navegar para outra rota definida no seu router.tsx */}
-            {/* A rota "/admin/legends" levará ao dashboard de administração de Legends */}
-            <Link to="/admin/legends" className="btn-primary">
-              Gerenciar Entidades de Legends 🛠️ {/* Texto do botão com um emoji para clareza */}
-            </Link>
-          </nav>
+          {/* A navegação foi removida daqui para ser posicionada no topo */}
         </div>
       </header>
 

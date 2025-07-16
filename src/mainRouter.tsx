@@ -64,27 +64,27 @@ export const router = createBrowserRouter([
   },
   {
     // Rota para o painel de administração específico do Minecraft Legends
-    path: '/admin',
+    path: '/admin/legends',
     element: <LegendsAdminDashboard />, // Este componente (AdminDashBoard.tsx) precisa renderizar um <Outlet />
     children: [
       {
-        index: true, // Rota padrão para /admin/legends (listagem)
-        element: <LegendsItemList />,
+      index: true, // Rota padrão para /admin/legends (listagem)
+      element: <LegendsItemList />,
       },
       {
-        path: 'novo', // Rota para adicionar nova entidade: /admin/legends/novo
-        element: <LegendsItemForm />,
+      path: 'novo', // Rota para adicionar nova entidade: /admin/legends/novo
+      element: <LegendsItemForm />,
       },
       {
-        path: 'editar/:id', // Rota para editar entidade existente: /admin/legends/editar/:id
-        element: <LegendsItemForm />,
+      path: 'editar/:id', // Rota para editar entidade existente: /admin/legends/editar/:id
+      element: <LegendsItemForm />,
       },
       {
-        path: 'relatorio', // Rota para o relatório de entidades: /admin/legends/relatorio
-        element: <LegendsReportPage />,
+      path: 'relatorio', // Rota para o relatório de entidades: /admin/legends/relatorio
+      element: <LegendsReportPage />,
       }
     ]
-  },
+    },
 
   //Education
   {
@@ -123,5 +123,5 @@ export const router = createBrowserRouter([
         element: <ReportPage />,
       }
     ]
-  }
+  } 
 ]);
